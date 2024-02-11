@@ -1,0 +1,88 @@
+/* Styles for mobile and tablet screens */
+@media (max-width: 767.98px) 
+{
+    /* Hide desktop navigation */
+    .navbar-expand 
+    {
+        display: none;
+    }
+
+    /* Show sidebar */
+    .sidebar 
+    {
+        display: block;
+    }
+}
+
+/* Styles for desktop screens */
+@media (min-width: 768px) 
+{
+    /* Hide mobile/tablet sidebar navigation */
+    .sidebar 
+    {
+        display: none;
+    }
+}
+
+/* Sidebar */
+.sidebar 
+{
+    background-color: #bcc6cc;
+    border-right: 2px solid #dee2e6;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: visible;
+}
+
+/* Sidebar - dropdown border */
+.dropdown.border-top 
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+
+.Content
+{
+    border: black solid 1px;
+    /* Styles for mobile and tablet screens */
+    @media (max-width: 767.98px) 
+    {
+        margin-left: 30%;
+        margin-right: 10%;
+        margin-top: 10%;
+        margin-bottom: 10%;;
+               
+    }
+    /* Styles for desktop screens */
+    @media (min-width: 768px) 
+    {
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 5%; 
+        margin-bottom: 5%;
+    }
+}
+.Footer
+{
+    /* Styles for mobile and tablet screens */
+    @media (max-width: 767.98px) 
+    {
+        margin-left: 30%;
+        margin-right: 10%;
+        margin-top: 10%;
+        margin-bottom: 10%;;
+               
+    }
+    /* Styles for desktop screens */
+    @media (min-width: 768px) 
+    {
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 5%; 
+        margin-bottom: 5%;
+    }
+}
