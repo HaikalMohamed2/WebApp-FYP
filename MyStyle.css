@@ -1,88 +1,40 @@
-/* Styles for mobile and tablet screens */
-@media (max-width: 767.98px) 
+.NavFont
 {
-    /* Hide desktop navigation */
-    .navbar-expand 
-    {
-        display: none;
-    }
-
-    /* Show sidebar */
-    .sidebar 
-    {
-        display: block;
-    }
+    font-size: large;
+}
+.navbar-nav 
+{
+    margin-left: auto;
+    text-align: center;
+}
+/* Custom styles for table */
+.table-responsive 
+{
+    max-width: 100%;
+    overflow-x: auto;
 }
 
-/* Styles for desktop screens */
-@media (min-width: 768px) 
+.table-striped tbody tr:nth-of-type(odd) 
 {
-    /* Hide mobile/tablet sidebar navigation */
-    .sidebar 
-    {
-        display: none;
-    }
+    background-color: rgba(0, 0, 0, 0.05);
+}
+/* Custom scrollbar styles */
+::-webkit-scrollbar 
+{
+    width: 10px;
 }
 
-/* Sidebar */
-.sidebar 
+::-webkit-scrollbar-track 
 {
-    background-color: #bcc6cc;
-    border-right: 2px solid #dee2e6;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow-y: visible;
+    background: #f1f1f1;
 }
 
-/* Sidebar - dropdown border */
-.dropdown.border-top 
+::-webkit-scrollbar-thumb 
 {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    left: 0;
+    background: #888;
 }
 
-.Content
+::-webkit-scrollbar-thumb:hover 
 {
-    border: black solid 1px;
-    /* Styles for mobile and tablet screens */
-    @media (max-width: 767.98px) 
-    {
-        margin-left: 30%;
-        margin-right: 10%;
-        margin-top: 10%;
-        margin-bottom: 10%;;
-               
-    }
-    /* Styles for desktop screens */
-    @media (min-width: 768px) 
-    {
-        margin-left: 5%;
-        margin-right: 5%;
-        margin-top: 5%; 
-        margin-bottom: 5%;
-    }
-}
-.Footer
-{
-    /* Styles for mobile and tablet screens */
-    @media (max-width: 767.98px) 
-    {
-        margin-left: 30%;
-        margin-right: 10%;
-        margin-top: 10%;
-        margin-bottom: 10%;;
-               
-    }
-    /* Styles for desktop screens */
-    @media (min-width: 768px) 
-    {
-        margin-left: 5%;
-        margin-right: 5%;
-        margin-top: 5%; 
-        margin-bottom: 5%;
-    }
+    background: #555;
 }
