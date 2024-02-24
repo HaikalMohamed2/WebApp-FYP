@@ -63,13 +63,16 @@
           <thead align="center">
             <tr>
               <p class="text-bg-info p-2" align="center"><b>SENARAI KETIDAKHADIRAN STAFF DAN GURU</b></p>
-              <th scope="col"></th>
+              <tr>
+              <th scope="col">Staff ID</th>
               <th scope="col">Name</th>
               <th scope="col">Class</th>
               <th scope="col">Date</th>
               <th scope="col">Reason Absence</th>
+              <th scope="col">Leave Letter</th>
               <th scope="col">Temporary teacher<br>replacement</th>
               <th scope="col">Update</th>
+            </tr>
             </tr>
           </thead>
           <tbody align="center">
@@ -79,38 +82,7 @@
               <td>4C</td>
               <td>07/02/2010</td>
               <td>Cuti Sakit</td>
-              <td>
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Select Teacher</option>
-                  <option value="1">Ali Bin Abu</option>
-                  <option value="2">Sufian Bin Manan</option>
-                  <option value="3">Sofia Binti Jamal</option>
-                </select>
-              </td>
-              <td><a class="btn btn-success" href="#" role="button">Add</a></td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Sufian Bin Manan</td>
-              <td>2B</td>
-              <td>04/02/2010</td>
-              <td>Kursus</td>
-              <td>
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Select Teacher</option>
-                  <option value="1">Ali Bin Abu</option>
-                  <option value="2">Sufian Bin Manan</option>
-                  <option value="3">Sofia Binti Jamal</option>
-                </select>
-              </td>
-              <td><a class="btn btn-success" href="#" role="button">Add</a></td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Sofia Binti Jamal</td>
-              <td>4A</td>
-              <td>01/02/2010</td>
-              <td>Appointment Hospital</td>
+              <td></td>
               <td>
                 <select class="form-select" aria-label="Default select example">
                   <option selected>Select Teacher</option>

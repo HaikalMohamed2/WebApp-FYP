@@ -23,7 +23,7 @@
 .table-responsive 
 {
     max-width: 100%;
-    overflow-x: auto;
+    overflow-y: auto;
 }
 
 .table-striped tbody tr:nth-of-type(odd) 
