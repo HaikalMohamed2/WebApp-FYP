@@ -17,7 +17,7 @@
         $query = "select * from `staffattendance` ORDER BY Date DESC";
         $result = mysqli_query($Connection, $query);
 
-        // Display all data from Table and display on webpage table
+        // Display all data from Table and display on webpage table for Staff Dashboard
         while ($row = mysqli_fetch_assoc($result))
         {
             ?>

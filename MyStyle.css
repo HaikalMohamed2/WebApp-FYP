@@ -1,49 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+/* Media queries for responsiveness */
+@media (min-width: 576px) 
+{
+  /* Small devices (landscape phones) */
+}
+
+@media (min-width: 768px) 
+{
+  /* Medium devices (tablets) */
+}
+
+@media (min-width: 992px) 
+{
+  /* Large devices (desktops) */
+}
+
+@media (min-width: 1200px) 
+{
+  /* Extra large devices (large desktops) */
+}
+
 /* Custom scrollbar styles */
 ::-webkit-scrollbar 
 {
-    width: 10px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track 
 {
-    background: #f1f1f1;
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb 
 {
-    background: #888;
+  background: #888;
 }
 
 ::-webkit-scrollbar-thumb:hover 
 {
-    background: #555;
+  background: #555;
 }
 
 /* Custom styles for table */
 .table-responsive 
 {
-    max-width: 100%;
-    overflow-y: auto;
+  max-width: 100%;
+  overflow-y: auto;
 }
 
 .table-striped tbody tr:nth-of-type(odd) 
 {
-    background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* Nav Bar */
-.NavFont
+.NavFont 
 {
-    font-size: large;
+  font-size: small;
 }
+
 .navbar-nav 
 {
-    margin-left: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.NavColor 
+{
+  background-color: #e5d571;
+}
+
+.BodyColor
+{
+    background-color: rgba(34, 193, 195, 1);
+}
+
+/* Content */
+.ContentColor
+{
+    background-color: rgba(34, 193, 195, 1);
+}
+
+/* Footer */
+.FooterColor 
+{
+    background-color: #e5d571;
     text-align: center;
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
 }
 
 /* Table Position */
-.TablePosition
+.TablePosition 
 {
-    margin-left: auto;
+  margin-left: auto;
 }
