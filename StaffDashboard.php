@@ -13,7 +13,7 @@
 <body>
 <!-- Header -->
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark NavFont">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light NavFont">
     <div class="container-fluid">
       <a href="#" class="navbar-brand"><img src="SourceImg\SEMUJA-Logo.png.jpg" width="20%" height="20%"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -134,7 +134,7 @@
             </div>
           </div>
         </div>
-
+        
         <!-- Update Attendance -->
         <div class="modal fade" id="UpdateAttendanceModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="UpdateAttendanceModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -150,11 +150,23 @@
                     <label for="Name" class="form-label">Staff ID</label>
                     <input type="text" class="form-control" name="StaffID" required>
                   </div>
-
+                  
+                  <!-- Date Picker -->
                   <div class="mb-3">
+                    <label class="form-label">Date</label>
+                    <input type="date" class="form-control" name="Date">
+                    <center>
+                    <hr class="b-example-divider"><h3>Update</h3>
+                    </center>
+                    <hr class="b-example-divider">
+                  </div>
+                  
+
+                  
+                  <!-- <div class="mb-3">
                     <label for="Name" class="form-label">Name</label>
                     <input type="text" class="form-control" name="StaffName" required>
-                  </div>
+                  </div> -->
 
                   <!-- Select Class-->
                   <div>
@@ -169,11 +181,6 @@
                   </select>
                   </div>
 
-                  <!-- Date Picker -->
-                  <div class="mb-3">
-                    <label class="form-label">Date</label>
-                    <input type="date" class="form-control" name="Date">
-                  </div>
                   
                     <!-- TextBox -->
                     <div class="mb-3">
@@ -190,7 +197,7 @@
                   <div class="modal-footer">
                     <button type="reset" class="btn btn-secondary" data-bs-dismiss="">Clear</button>
                     <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-success" name="Add">Add</button>
+                    <button type="submit" class="btn btn-success" name="Update">Update</button>
                   </div>
                 </form>
               </div>

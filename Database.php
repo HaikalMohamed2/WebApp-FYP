@@ -58,6 +58,30 @@
         <?php
     }
 
+    // Update data from DB and show in table
+    if (isset($_POST['Update'])) 
+    {
+        $StaffID = $_POST['StaffID'];
+        $Date = $_POST['Date'];
+        $Class = $_POST['Class'];
+        $R_Absence = $_POST['R-Absence'];
+        $LeaveLetterFile = $_POST['LeaveLetterFile'];
+
+        $UpdateQuery = "UPDATE `staffattendance` SET Class='$Class', ReasonAbsence='$R_Absence', LeaveLetter='$LeaveLetterFile' WHERE StaffID='$StaffID' AND Date='$Date'";
+        $result = mysqli_query($Connection, $UpdateQuery);
+
+        ?>
+            <!-- Auto Refresh Webpage when update button is clicked -->
+            <script>
+                function autoRefresh()
+                {
+                    window.location = window.location.href;
+                }
+                setInterval('autoRefresh()', 1000);
+            </script>
+        <?php
+    }
+    
     // Delete data from DB and show in table
     if (isset($_POST['Delete'])) 
     {
