@@ -1,0 +1,93 @@
+body{
+    background: url(sakura3.jpeg);
+    width: 99%;
+    height: 100%;
+    font-family: sans-serif;
+}
+
+.signup{
+    width: 360px;
+    height: 650px;
+    margin:auto;
+    background-color:aliceblue;
+    border-radius: 3px;
+}
+
+.login{
+    width: 360px;
+    height: 500px;
+    margin: auto;
+    background-color:aliceblue;
+    border-radius: 3px;
+}
+
+
+h1{
+    text-align: center;
+}
+
+h4{
+    text-align: center;
+    padding-top: 15px;
+}
+
+form{
+    width: 300px;
+    margin-left: 20px;
+}
+
+form label{
+    display: flex;
+    margin-top: 20px;
+    font-size: 15px;
+    font-style: oblique;
+    
+}
+
+form input{
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border: 1px solid gray;
+    border-radius: 6px;
+    outline: none;
+}
+
+input[type="submit"]{
+    width: 320px;
+    height: 35px;
+    margin-top: 20px;
+    border: none;
+    background-color:burlywood;
+    color: black;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover{
+    color:white;
+    background: rgb(13, 211, 247);
+}
+
+p{
+    text-align: center;
+    padding-top: 20px;
+    font-size: 20px;
+    font-style: oblique;
+
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Add this line to center horizontally */
+    margin-bottom: 20px; /* Add this line to provide some space at the bottom */
+}
+
+.logo img {
+    width: 100px;
+}
+
+@media only screen and (max-width : 320px){
+    
+}
