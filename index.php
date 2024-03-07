@@ -1,8 +1,3 @@
-<?php
-    include('db.php');
-
-?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -20,7 +15,7 @@
         </ul>
         <h1 class="h1mp">WELCOME TO SSAMS</h1>
         <div class="logo">
-            <img src="SEMUJA.png" alt="SSAMS">
+            <img src="SourceImg\SEMUJA-Logo.jpg" alt="SSAMS">
         </div>
         <div class="mainpage">
                       <!-- Slideshow container -->
@@ -28,22 +23,24 @@
 
           <!-- Full-width images with number and caption text -->
           <div class="mySlides fade">
-            <img src="sunset1.jpeg" >
+            <img src="SourceImg\sunset1.png" >
           </div>
 
           <div class="mySlides fade">
-            <img src="sunset2.jpg" >
+            <img src="SourceImg\sunset2.png" >
           </div>
 
           <div class="mySlides fade">
-            <img src="sunset3.jpeg">
+            <img src="SourceImg\sunset3.png">
           </div>
+          <form method="post">
           <div class="btn-group" style="width:100%">
-            <button><a href="login.php">Staff Dashboard</a></button>
-            <button><a href="">Management Dashboard</a></button>
-            <button><a href="">Admin Dashboard</a></button>
+            <button><a href="login.php" name="StaffLogin">Staff Dashboard</a></button>
+            <button><a href="" name="ManagementLogin">Management Dashboard</a></button>
+            <button><a href="" name="AdminLogin">Admin Dashboard</a></button>
           </div>
         </div>
         <script src="mainpage.js"></script>
+          </form>
 </body>
 </html>

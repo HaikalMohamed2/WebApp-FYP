@@ -1,21 +1,13 @@
 <?php
-    // Define Hostname, Username, Password and Database
-    define("HOSTNAME", "localhost");
-    define("USERNAME", "root");
-    define("PASSWORD", "");
-    define("DATABASE", "sams-database");
-
-    // Connect to Database
-    $Connection = mysqli_connect(HOSTNAME, USERNAME, PASSWORD, DATABASE);
-
-    if (!$Connection) 
+    include('DBConn.php');
+    if (!$conn) 
     {
         echo "Connection Failed";
     }
     else
         // Select all data from DB and display on table with Descending Order(DESC)
         $query = "select * from `staffattendance` ORDER BY Date DESC";
-        $result = mysqli_query($Connection, $query);
+        $result = mysqli_query($conn, $query);
 
         // Display all data from Table and display on webpage table for Staff Dashboard
         while ($row = mysqli_fetch_assoc($result))
@@ -44,7 +36,7 @@
 
         $InsertQuery = "insert into `staffattendance` (StaffID, StaffName, Class, Date, ReasonAbsence, LeaveLetter)
                     values ('$StaffID', '$StaffName', '$Class', '$Date', '$R_Absence', '$LeaveLetterFile')";
-        $result = mysqli_query($Connection, $InsertQuery);
+        $result = mysqli_query($conn, $InsertQuery);
 
         ?>
             <!-- Auto Refresh Webpage when add button is clicked -->
@@ -68,7 +60,7 @@
         $LeaveLetterFile = $_POST['LeaveLetterFile'];
 
         $UpdateQuery = "UPDATE `staffattendance` SET Class='$Class', ReasonAbsence='$R_Absence', LeaveLetter='$LeaveLetterFile' WHERE StaffID='$StaffID' AND Date='$Date'";
-        $result = mysqli_query($Connection, $UpdateQuery);
+        $result = mysqli_query($conn, $UpdateQuery);
 
         ?>
             <!-- Auto Refresh Webpage when update button is clicked -->
@@ -89,7 +81,7 @@
         $Date = $_POST['Date'];
 
         $DeleteQuery = "DELETE FROM `staffattendance` WHERE StaffID='$StaffID' AND Date='$Date'";
-        $result = mysqli_query($Connection, $DeleteQuery);
+        $result = mysqli_query($conn, $DeleteQuery);
 
         ?>
             <!-- Auto Refresh Webpage when delete button is clicked -->
@@ -102,6 +94,4 @@
             </script>
         <?php
     }
-
-
 ?>

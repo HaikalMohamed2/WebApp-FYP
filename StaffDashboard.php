@@ -15,11 +15,11 @@
 <header>
   <nav class="navbar navbar-expand-lg NavFont NavColor">
     <div class="container-fluid" id="navTheme">
-      <a href="#" class="navbar-brand"><img src="SourceImg\SEMUJA-Logo.png.jpg" width="20%" height="20%"></a>
+      <a href="#" class="navbar-brand"><img src="SourceImg\SEMUJA-Logo.jpg" width="20%" height="20%"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse" id="navbarNav" method="post">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -35,7 +35,7 @@
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownAccount">
               <li><a class="dropdown-item" href="#">Your Profile</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Log Out</a></li>
+              <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
             </ul>
           </li>
         </ul>
@@ -232,7 +232,7 @@
           </div>
         </div>
         
-        <?php include('Database.php')?>
+        <?php include('DBStaff.php')?>
           <thead align="center">
             <th colspan="6" class="text-bg-info">SENARAI KETIDAKHADIRAN STAFF DAN GURU</th>
             <tr>

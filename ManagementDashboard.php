@@ -14,7 +14,7 @@
   <header>
     <nav class="navbar navbar-expand-lg NavFont NavColor">
       <div class="container-fluid">
-        <a href="#" class="navbar-brand"><img src="SourceImg\SEMUJA-Logo.png.jpg" width="20%" height="20%"></a>
+        <a href="#" class="navbar-brand"><img src="SourceImg\SEMUJA-Logo.jpg" width="20%" height="20%"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -55,11 +55,11 @@
   <div class="container ContentColor">
     <div class="row">
       <div class="col">
-        <br><h2 class="text-center">Dashboard Admin</h2><br>
+        <br><h2 class="text-center">Management Dashboard</h2><br>
         <div class="table-responsive">
           <table class="table table-bordered table-striped table-light">
 
-            <?php include('AdminDB.php')?>
+            <?php include('ManagementDB.php')?>
             <thead align="center">
               <tr>
                 <th colspan="8" class="text-bg-info">SENARAI KETIDAKHADIRAN STAFF DAN GURU</th>

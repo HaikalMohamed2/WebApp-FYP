@@ -1,21 +1,13 @@
 <?php
-    // Define Hostname, Username, Password and Database
-    define("HOSTNAME", "localhost");
-    define("USERNAME", "root");
-    define("PASSWORD", "");
-    define("DATABASE", "sams-database");
-
-    // Connect to Database
-    $Connection = mysqli_connect(HOSTNAME, USERNAME, PASSWORD, DATABASE);
-
-    if (!$Connection) 
+  include('DBConn.php');
+    if (!$conn) 
     {
         echo "Connection Failed";
     }
     else
         // Select all data from DB and display on table with Descending Order(DESC)
         $query = "select * from `staffattendance` ORDER BY Date DESC";
-        $result = mysqli_query($Connection, $query);
+        $result = mysqli_query($conn, $query);
 
         // Display all data from Table and display on webpage table for Admin Dashboard
         while ($row = mysqli_fetch_assoc($result))

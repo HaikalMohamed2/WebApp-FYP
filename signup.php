@@ -12,7 +12,7 @@
 
         if(!empty($email) && !empty($password) && !is_numeric($email))
         {
-            $query = "insert into info (staff_id, username, email, password) values('$staff_id', '$username', '$email', '$password')";
+            $query = "insert into account (staff_id, username, email, password) values('$staff_id', '$username', '$email', '$password')";
 
             mysqli_query($conn, $query);
 
@@ -41,7 +41,7 @@
             <h1>Sign Up</h1>
             <p>Welcome To SSAMS</p>
             <div class="logo">
-                <img src="SEMUJA.png" alt="SSAMS">
+                <img src="SourceImg\SEMUJA-Logo.jpg" alt="SSAMS">
             </div>
             <form method="POST">
                 <label>Staff ID</label>

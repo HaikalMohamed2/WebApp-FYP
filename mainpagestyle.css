@@ -1,6 +1,7 @@
 body{
-    background: url(scenery1.jpeg);
-    width: 99%;
+    background: url(SourceImg/scenery1.png);
+    background-repeat: no-repeat;
+    width: 100%;
     height: 100%;
     font-family: sans-serif;
     text-align: center;

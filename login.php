@@ -1,8 +1,6 @@
 <?php
     session_start();
-
-    include("db.php");
-
+    
     if($_SERVER['REQUEST_METHOD'] == "POST")
     {
       $email = $_POST['email'];
@@ -10,7 +8,7 @@
 
       if(!empty($email) && !empty($password) && !is_numeric($email))
       {
-          $query = "select * from info where email = '$email' limit 1";
+          $query = "select * from StaffAccount where email = '$email' limit 1";
           $result = mysqli_query($conn, $query);
 
           if($result)
@@ -21,21 +19,18 @@
 
                 if($user_data['password'] == $password)
                 {
-                    header("location: index.php");
-                    die;
+                    header("location: StaffDashboard.php");
+                    session_start();
+                    exit;
 
                 }
             }
           }
-          echo " <script type='text/javascript'> alert('wrong email or password')</script>";
-
+          else
+            echo " <script type='text/javascript'> alert('wrong email or password')</script>";
       }
       else
-      {
         echo " <script type='text/javascript'> alert('wrong email or password')</script>";
-
-      }
-
     }
 ?>
 
@@ -52,7 +47,7 @@
         <h1>Login</h1>
         <p>Welcome To SSAMS</p>
         <div class="logo">
-            <img src="SEMUJA.png" alt="SSAMS">
+            <img src="SourceImg\SEMUJA-Logo.jpg" alt="SSAMS">
         </div>
         <form method="POST">
             <label>Email</label>
