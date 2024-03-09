@@ -9,6 +9,6 @@
     session_destroy();
 
     // Redirect to the login page
-    header("Location: login.php");
+    header("Location: MainPage\ManagementLogin.php");
     exit;
 ?>

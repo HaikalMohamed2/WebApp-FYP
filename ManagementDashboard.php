@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard</title>
+  <title>Management Dashboard</title>
   <!-- Bootstrap for CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
@@ -42,7 +42,7 @@
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownAccount">
                 <li><a class="dropdown-item" href="#">Your Profile</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Log Out</a></li>
+                <li><a class="dropdown-item" href="Logout Sesion\MgmtLogout.php">Log Out</a></li>
               </ul>
             </li>
           </ul>
@@ -59,18 +59,18 @@
         <div class="table-responsive">
           <table class="table table-bordered table-striped table-light">
 
-            <?php include('ManagementDB.php')?>
+            <?php include('MgmtDB.php')?>
             <thead align="center">
               <tr>
-                <th colspan="8" class="text-bg-info">SENARAI KETIDAKHADIRAN STAFF DAN GURU</th>
+                <th colspan="8" class="text-bg-dark">STAFF AND TEACHER ABSENCE LIST</th>
                 <tr>
                   <th scope="col">Staff ID</th>
                   <th scope="col">Name</th>
                   <th scope="col">Class</th>
                   <th scope="col">Date</th>
                   <th scope="col">Reason Absence</th>
-                  <th scope="col">Leave Letter</th>
-                  <th scope="col">Temporary teacher<br>replacement</th>
+                  <th scope="col">Substitute Teachers Name</th>
+                  <th scope="col">Choose a Substitute Teacher </th>
                   <th scope="col">Update</th>
                 </tr>
                 <tr>

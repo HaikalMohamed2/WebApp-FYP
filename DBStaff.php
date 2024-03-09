@@ -1,97 +1,121 @@
 <?php
     include('DBConn.php');
+
     if (!$conn) 
     {
         echo "Connection Failed";
-    }
-    else
+    } 
+    else 
+    {
         // Select all data from DB and display on table with Descending Order(DESC)
-        $query = "select * from `staffattendance` ORDER BY Date DESC";
+        $query = "SELECT * FROM `staffattendance` ORDER BY Date DESC";
         $result = mysqli_query($conn, $query);
 
         // Display all data from Table and display on webpage table for Staff Dashboard
-        while ($row = mysqli_fetch_assoc($result))
-        {
+        while ($row = mysqli_fetch_assoc($result)) {
             ?>
             <tr>
                 <td align="center"><?php echo $row['StaffID']; ?></td>
                 <td><?php echo $row['StaffName']; ?></td>
                 <td><?php echo $row['Class']; ?></td>
                 <td><?php echo $row['Date']; ?></td>
-                <td><?php echo $row['ReasonAbsence']; ?></td>
-                <td></td>
+                <td>
+                    <?php
+                    if ($row['ReasonAbsence'] == 'Other' && isset($row['OtherReason'])) 
+                    {
+                        echo $row['OtherReason'];
+                    } 
+                    else 
+                    {
+                        echo $row['ReasonAbsence'];
+                    }
+                    ?>
+                </td>
+                <td><?php echo $row['SubsTeacherName']; ?></td>
             </tr>
             <?php
         }
-    
-    // Insert data into DB and show in table
-    if (isset($_POST['Add'])) 
-    {
-        $StaffID = $_POST['StaffID'];
-        $StaffName = $_POST['StaffName'];
-        $Class = $_POST['Class'];
-        $Date = $_POST['Date'];
-        $R_Absence = $_POST['R-Absence'];
-        $LeaveLetterFile = $_POST['LeaveLetterFile'];
 
-        $InsertQuery = "insert into `staffattendance` (StaffID, StaffName, Class, Date, ReasonAbsence, LeaveLetter)
-                    values ('$StaffID', '$StaffName', '$Class', '$Date', '$R_Absence', '$LeaveLetterFile')";
-        $result = mysqli_query($conn, $InsertQuery);
+        // Insert data into DB and show in table
+        if (isset($_POST['Add'])) 
+        {
+            $StaffID = $_POST['StaffID'];
+            $StaffName = $_POST['StaffName'];
+            $Class = $_POST['Class'];
+            $Date = $_POST['Date'];
+            $R_Absence = $_POST['R-Absence'];
+            $OtherReason = $_POST['OtherReason']; // Get the Other reason text
 
-        ?>
-            <!-- Auto Refresh Webpage when add button is clicked -->
-            <script>
-                function autoRefresh()
-                {
-                    window.location = window.location.href;
-                }
-                setInterval('autoRefresh()', 1000);
-            </script>
-        <?php
-    }
+            // Check if the reason is "Other" and set the reason text accordingly
+            $ReasonAbsence = ($R_Absence == 'Other') ? $OtherReason : $R_Absence;
 
-    // Update data from DB and show in table
-    if (isset($_POST['Update'])) 
-    {
-        $StaffID = $_POST['StaffID'];
-        $Date = $_POST['Date'];
-        $Class = $_POST['Class'];
-        $R_Absence = $_POST['R-Absence'];
-        $LeaveLetterFile = $_POST['LeaveLetterFile'];
+            // Use prepared statement to avoid SQL injection
+            $InsertQuery = $conn->prepare("INSERT INTO `staffattendance` (StaffID, StaffName, Class, Date, ReasonAbsence) VALUES (?, ?, ?, ?, ?)");
+            $InsertQuery->bind_param("sssss", $StaffID, $StaffName, $Class, $Date, $ReasonAbsence);
+            $InsertQuery->execute();
 
-        $UpdateQuery = "UPDATE `staffattendance` SET Class='$Class', ReasonAbsence='$R_Absence', LeaveLetter='$LeaveLetterFile' WHERE StaffID='$StaffID' AND Date='$Date'";
-        $result = mysqli_query($conn, $UpdateQuery);
+            // Auto Refresh Webpage when delete button is clicked
+            ?>
+                <script>
+                    function autoRefresh()
+                    {
+                        window.location = window.location.href;
+                    }
+                    setInterval('autoRefresh()', 1000);
+                </script>
+            <?php
+        }
 
-        ?>
-            <!-- Auto Refresh Webpage when update button is clicked -->
-            <script>
-                function autoRefresh()
-                {
-                    window.location = window.location.href;
-                }
-                setInterval('autoRefresh()', 1000);
-            </script>
-        <?php
-    }
-    
-    // Delete data from DB and show in table
-    if (isset($_POST['Delete'])) 
-    {
-        $StaffID = $_POST['StaffID'];
-        $Date = $_POST['Date'];
+        // Update data from DB and show in table
+        if (isset($_POST['Update'])) 
+        {
+            $StaffID = $_POST['StaffID'];
+            $Date = $_POST['Date'];
+            $Class = $_POST['Class'];
+            $R_Absence = $_POST['R-Absence'];
+            $OtherReason = $_POST['OtherReason']; // Get the Other reason text
 
-        $DeleteQuery = "DELETE FROM `staffattendance` WHERE StaffID='$StaffID' AND Date='$Date'";
-        $result = mysqli_query($conn, $DeleteQuery);
+            // Check if the reason is "Other" and set the reason text accordingly
+            $ReasonAbsence = ($R_Absence == 'Other') ? $OtherReason : $R_Absence;
 
-        ?>
-            <!-- Auto Refresh Webpage when delete button is clicked -->
-            <script>
-                function autoRefresh()
-                {
-                    window.location = window.location.href;
-                }
-                setInterval('autoRefresh()', 1000);
-            </script>
-        <?php
+            // Use prepared statement to avoid SQL injection
+            $UpdateQuery = $conn->prepare("UPDATE `staffattendance` SET Class=?, ReasonAbsence=? WHERE StaffID=? AND Date=?");
+            $UpdateQuery->bind_param("ssss", $Class, $ReasonAbsence, $StaffID, $Date);
+            $UpdateQuery->execute();
+
+            // Auto Refresh Webpage when delete button is clicked
+            ?>
+                <script>
+                    function autoRefresh()
+                    {
+                        window.location = window.location.href;
+                    }
+                    setInterval('autoRefresh()', 1000);
+                </script>
+            <?php
+        }
+
+        // Delete data from DB and show in table
+        if (isset($_POST['Delete'])) 
+        {
+            $StaffID = $_POST['StaffID'];
+            $Date = $_POST['Date'];
+
+            // Use prepared statement to avoid SQL injection
+            $DeleteQuery = $conn->prepare("DELETE FROM `staffattendance` WHERE StaffID=? AND Date=?");
+            $DeleteQuery->bind_param("ss", $StaffID, $Date);
+            $DeleteQuery->execute();
+
+            // Auto Refresh Webpage when delete button is clicked
+            ?>
+                <script>
+                    function autoRefresh()
+                    {
+                        window.location = window.location.href;
+                    }
+                    setInterval('autoRefresh()', 1000);
+                </script>
+            <?php
+        }
     }
 ?>

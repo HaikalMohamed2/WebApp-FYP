@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- Your form elements go here -->
+              <select class="form-control" id="myselect">
+                <option value="">Select an option</option>
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <!-- Add more options as needed -->
+              </select>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Open Modal
+      </button>
+      <script>
+        $(document).on('click', '.option', function() {
+        var optionText = $(this).text();
+        $('#selected').text(optionText).val(optionText); // Set the text and value of your input field
+        $('#myModal').modal('hide'); // Close the modal
+        });
+      </script>
+</body>
+</html>

@@ -1,16 +1,20 @@
 <?php
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
+if ($_SERVER['REQUEST_METHOD'] == "POST") 
+{
     $email = $_POST['email'];
     $password = $_POST['password'];
 
     // Check if the entered credentials are for the admin
-    if ($email == "admin123@gmail.com" && $password == "admin123") {
+    if ($email == "admin123@gmail.com" && $password == "admin123") 
+    {
         // Redirect to the admin page
-        header("location: admin.php");
+        header("location: ../AdminDashboard.php");
         die;
-    } else {
+    } 
+    else 
+    {
         echo "<script type='text/javascript'> alert('Wrong email or password')</script>";
     }
 }

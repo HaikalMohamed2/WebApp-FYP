@@ -1,4 +1,6 @@
 <?php
+    // This DBConn.php only for create connection to localhost phpMyAdmin
+
      define("HOSTNAME", "localhost");
      define("USERNAME", "root");
      define("PASSWORD", "");

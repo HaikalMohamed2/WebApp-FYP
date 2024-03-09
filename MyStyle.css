@@ -2,7 +2,16 @@
 /* Media queries for responsiveness */
 @media (min-width: 576px) 
 {
-  /* Small devices (landscape phones) */
+  /* Small devices */
+  .modal-dialog
+  {
+    overflow-y: hidden;
+  }
+
+  .modal-body
+  {
+    overflow-y: hidden;
+  }
 }
 
 @media (min-width: 768px) 

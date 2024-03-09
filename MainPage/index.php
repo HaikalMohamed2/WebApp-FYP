@@ -1,8 +1,3 @@
-<?php
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -21,7 +16,7 @@
           <li><a href="">Contact</a></li>
           <li><a href="">About</a></li>
         </ul>
-        <h1 class="h1mp">WELCOME TO SSAMS</h1>
+        <h1 class="h1mp">WELCOME TO SAMS</h1>
         <div class="logo">
             <img src="SEMUJA.png" alt="SSAMS">
         </div>
@@ -43,7 +38,7 @@
           </div>
           <div class="container">
     <!-- Button 1 -->
-    <a href="login.php" class="button">
+    <a href="StaffLogin.php" class="button">
         <div class="button__content">
             <span class="button__text">Staff Dashboard</span>
             <i class="ri-download-cloud-fill button__icon"></i>
@@ -63,7 +58,7 @@
     </a>
 
     <!-- Button 2 -->
-    <a href="adminLogin.php" class="button">
+    <a href="ManagementLogin.php" class="button">
         <div class="button__content">
             <span class="button__text">Management Dashboard</span>
             <i class="ri-download-cloud-fill button__icon"></i>
@@ -83,7 +78,7 @@
     </a>
 
     <!-- Button 3 -->
-    <a href="another_page.html" class="button">
+    <a href="AdminLogin.php" class="button">
         <div class="button__content">
             <span class="button__text">Admin Dashboard </span>
             <i class="ri-download-cloud-fill button__icon"></i>
