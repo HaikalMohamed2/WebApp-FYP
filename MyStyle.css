@@ -84,21 +84,26 @@
     background-color: rgba(34, 193, 195, 1);
 }
 
-/* Content */
-.ContentColor
-{
-    background-color: rgba(34, 193, 195, 1);
-}
-
 /* Footer */
 .FooterColor 
 {
-    background-color: #e5d571;
-    text-align: center;
-    position: fixed;
-    bottom: 0%;
-    width: 100%;
+  background-color: #e5d571;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
+
+.ContentColor 
+{
+  padding-bottom: 70px; /* Adjust this value based on the height of your footer */
+}
+
+.BodyColor 
+{
+  background-color: rgba(34, 193, 195, 1);
+}
+
 
 /* Table Position */
 .TablePosition 

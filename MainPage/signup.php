@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    include("db.php");
+    include("../DBConn.php");
 
     if($_SERVER['REQUEST_METHOD'] == "POST")
     {
@@ -54,7 +54,7 @@
                 <input type="password" name="password" required>
                 <input type="submit" name="" value="Submit">
             </form>
-            <p>Already have an account? <a href="login.php">Login Here</a></p>
+            <p>Already have an account? <a href="StaffLogin.php">Login Here</a></p>
         </div>
   </body>
 </html>

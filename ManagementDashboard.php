@@ -29,20 +29,20 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Help</a>
             </li>
-            <li class="nav-item dropdown">
+            <!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownManage" role="button" data-bs-toggle="dropdown" aria-expanded="false">Manage</a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownManage">
                 <li><a class="dropdown-item" href="#">Staff Account</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Database</a></li>
               </ul>
-            </li>
+            </li> -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAccount" role="button" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownAccount">
                 <li><a class="dropdown-item" href="#">Your Profile</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="Logout Sesion\MgmtLogout.php">Log Out</a></li>
+                <li><a class="dropdown-item" href="LogoutSession/MgmtLogout.php">Log Out</a></li>
               </ul>
             </li>
           </ul>
@@ -70,7 +70,7 @@
                   <th scope="col">Date</th>
                   <th scope="col">Reason Absence</th>
                   <th scope="col">Substitute Teachers Name</th>
-                  <th scope="col">Choose a Substitute Teacher </th>
+                  <th scope="col">Choose a Substitute <br> Teacher </th>
                   <th scope="col">Update</th>
                 </tr>
                 <tr>
@@ -83,6 +83,7 @@
       </div>
     </div>
   </div>
+  <br><br><br>
 
   <!-- Footer -->
   <footer class="footer mt-auto py-3 FooterColor">

@@ -1,5 +1,6 @@
 body{
     background: url(scenery1.jpeg);
+    background-repeat: no-repeat;
     width: 99%;
     height: 100%;
     font-family: sans-serif;

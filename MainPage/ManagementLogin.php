@@ -39,12 +39,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width-device-width, initial-scale-1">
-    <title>Register Form</title>
+    <title>Management Login Form</title>
+    <!-- Bootstrap for CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">    
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div class="login">
-        <h1>Login</h1>
+    <a href="../MainPage/index.php" class="btn btn-info">Homepage</a>
+        <h1>Management <br> Login</h1>
         <p>Welcome To SSAMS</p>
         <div class="logo">
             <img src="SEMUJA.png" alt="SSAMS">

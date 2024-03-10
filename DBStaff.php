@@ -12,7 +12,8 @@
         $result = mysqli_query($conn, $query);
 
         // Display all data from Table and display on webpage table for Staff Dashboard
-        while ($row = mysqli_fetch_assoc($result)) {
+        while ($row = mysqli_fetch_assoc($result)) 
+        {
             ?>
             <tr>
                 <td align="center"><?php echo $row['StaffID']; ?></td>

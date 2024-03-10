@@ -162,10 +162,15 @@
                             id="absenceReasonAdd">
                             <option selected>Type of Absence</option>
                             <hr class="dropdown-divider">
-                            <option>Cuti Berkursus</option>
-                            <option>Cuti 2</option>
-                            <option>Cuti 3</option>
-                            <option>Cuti 4</option>
+                            <option>Cuti Rehat Khas</option>
+                            <option>Cuti Sakit</option>
+                            <option>Cuti Menunaikan Haji</option>
+                            <option>Cuti Mengambil Peperiksaan</option>
+                            <option>Cuti Bersalin</option>
+                            <option>Cuti Tanpa Rekod PJJ</option>
+                            <option>Cuti Aktiviti KPPK/NUTP/Koperasi</option>
+                            <option>Cuti Isteri Bersalin</option>
+                            <option>Cuti Kematian Ahli Keluarga</option>
                             <option>Other</option>
                           </select>
                         </div>
@@ -283,10 +288,15 @@
                             id="absenceReasonUpdate">
                             <option selected>Type of Absence</option>
                             <hr class="dropdown-divider">
-                            <option>Cuti Berkursus</option>
-                            <option>Cuti 2</option>
-                            <option>Cuti 3</option>
-                            <option>Cuti 4</option>
+                            <option>Cuti Rehat Khas</option>
+                            <option>Cuti Sakit</option>
+                            <option>Cuti Menunaikan Haji</option>
+                            <option>Cuti Mengambil Peperiksaan</option>
+                            <option>Cuti Bersalin</option>
+                            <option>Cuti Tanpa Rekod PJJ</option>
+                            <option>Cuti Aktiviti KPPK/NUTP/Koperasi</option>
+                            <option>Cuti Isteri Bersalin</option>
+                            <option>Cuti Kematian Ahli Keluarga</option>
                             <option>Other</option>
                           </select>
                         </div>
