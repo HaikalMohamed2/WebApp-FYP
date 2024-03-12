@@ -41,7 +41,7 @@
             <h1>Sign Up</h1>
             <p>Welcome To SSAMS</p>
             <div class="logo">
-                <img src="SEMUJA.png" alt="SSAMS">
+                <img src="../SourceImg/SEMUJA.png" alt="SSAMS">
             </div>
             <form method="POST">
                 <label>Staff ID</label>

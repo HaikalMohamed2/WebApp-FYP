@@ -1,103 +1,153 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width-device-width, initial-scale-1.0">
-    <title>Main Page</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- Bootstrap for CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Bootstrap for JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <link rel="stylesheet" href="mainpagestyle.css">
-    <link rel="stylesheet" href="buttonanimate.css">
-  </head>
-  <body>
-      <ul>
-          <li><a href="">Home</a></li>
-          <li><a href="">News</a></li>
-          <li><a href="">Contact</a></li>
-          <li><a href="">About</a></li>
-        </ul>
-        <h1 class="h1mp">WELCOME TO SAMS</h1>
-        <div class="logo">
-            <img src="SEMUJA.png" alt="SSAMS">
+    <!-- Custom CSS for Homepage-->
+    <link href="indexStyle.css" rel="stylesheet">
+
+</head>
+<body class="BodyBg">
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg NavSet flex-column">
+            <div class="container-fluid" id="navTheme">
+                <!-- Navigation Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Add some work in between NavToggler and Logo -->
+                <div class="d-flex align-items-center mx-auto d-lg-none">
+                    <span class="mx-auto">SAMS HOMEPAGE</span>
+                </div>
+
+                <!-- SEMUJA Logo -->
+                <div class="logo">
+                        <img src="../SourceImg/SEMUJA.png" alt="SSAMS">
+                    </div>
+
+                <!-- Navigation Toggle -->
+                <div class="collapse navbar-collapse" id="navbarNav" method="post">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">News</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container ContentColor">
+        <div class="row">
+            <div class="col">
+                <br>
+                <center>
+                    <!-- <h1 class="h1mp">WELCOME TO SAMS</h1> -->
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../SourceImg/sunset1.png" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../SourceImg/sunset2.png" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../SourceImg/sunset3.png" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+
+                    <div class="Btn-container">
+                        <!-- Button 1 -->
+                        <a href="StaffLogin.php" class="button">
+                            <div class="button__content">
+                                <span class="button__text">Staff Dashboard</span>
+                                <i class="ri-download-cloud-fill button__icon"></i>
+
+                                <div class="button__reflection-1"></div>
+                                <div class="button__reflection-2"></div>
+                            </div>
+
+                            <img src="../SourceImg/star.png" alt="none" class="button__star-1">
+                            <img src="../SourceImg/star.png" alt="none" class="button__star-2">
+                            <img src="../SourceImg/circle.png" alt="none" class="button__circle-1">
+                            <img src="../SourceImg/circle.png" alt="none" class="button__circle-2">
+                            <img src="../SourceImg/diamond.png" alt="none" class="button__diamond">
+                            <img src="../SourceImg/triangle.png" alt="none" class="button__triangle">
+
+                            <div class="button__shadow"></div>
+                        </a>
+
+                        <!-- Button 2 -->
+                        <a href="ManagementLogin.php" class="button">
+                            <div class="button__content">
+                                <span class="button__text">Management Dashboard</span>
+                                <i class="ri-download-cloud-fill button__icon"></i>
+
+                                <div class="button__reflection-1"></div>
+                                <div class="button__reflection-2"></div>
+                            </div>
+
+                            <img src="../SourceImg/star.png" alt="none" class="button__star-1">
+                            <img src="../SourceImg/star.png" alt="none" class="button__star-2">
+                            <img src="../SourceImg/circle.png" alt="none" class="button__circle-1">
+                            <img src="../SourceImg/circle.png" alt="none" class="button__circle-2">
+                            <img src="../SourceImg/diamond.png" alt="none" class="button__diamond">
+                            <img src="../SourceImg/triangle.png" alt="none" class="button__triangle">
+
+                            <div class="button__shadow"></div>
+                        </a>
+
+                        <!-- Button 3 -->
+                        <a href="AdminLogin.php" class="button">
+                            <div class="button__content">
+                                <span class="button__text">Admin Dashboard </span>
+                                <i class="ri-download-cloud-fill button__icon"></i>
+
+                                <div class="button__reflection-1"></div>
+                                <div class="button__reflection-2"></div>
+                            </div>
+
+                            <img src="../SourceImg/star.png" alt="none" class="button__star-1">
+                            <img src="../SourceImg/star.png" alt="none" class="button__star-2">
+                            <img src="../SourceImg/circle.png" alt="none" class="button__circle-1">
+                            <img src="../SourceImg/circle.png" alt="none" class="button__circle-2">
+                            <img src="../SourceImg/diamond.png" alt="none" class="button__diamond">
+                            <img src="../SourceImg/triangle.png" alt="none" class="button__triangle">
+
+                            <div class="button__shadow"></div>
+                        </a>
+                </center>
+            </div>
         </div>
-        <div class="mainpage">
-                      <!-- Slideshow container -->
-          <div class="slideshow-container">
-
-          <!-- Full-width images with number and caption text -->
-          <div class="mySlides fade">
-            <img src="sunset1.jpeg" >
-          </div>
-
-          <div class="mySlides fade">
-            <img src="sunset2.jpg" >
-          </div>
-
-          <div class="mySlides fade">
-            <img src="sunset3.jpeg">
-          </div>
-          <div class="container">
-    <!-- Button 1 -->
-    <a href="StaffLogin.php" class="button">
-        <div class="button__content">
-            <span class="button__text">Staff Dashboard</span>
-            <i class="ri-download-cloud-fill button__icon"></i>
-
-            <div class="button__reflection-1"></div>
-            <div class="button__reflection-2"></div>
-        </div>
-
-        <img src="../SourceImg/star.png" alt="none" class="button__star-1">
-        <img src="../SourceImg/star.png" alt="none" class="button__star-2">
-        <img src="../SourceImg/circle.png" alt="none" class="button__circle-1">
-        <img src="../SourceImg/circle.png" alt="none" class="button__circle-2">
-        <img src="../SourceImg/diamond.png" alt="none" class="button__diamond">
-        <img src="../SourceImg/triangle.png" alt="none" class="button__triangle">
-
-        <div class="button__shadow"></div>
-    </a>
-
-    <!-- Button 2 -->
-    <a href="ManagementLogin.php" class="button">
-        <div class="button__content">
-            <span class="button__text">Management Dashboard</span>
-            <i class="ri-download-cloud-fill button__icon"></i>
-
-            <div class="button__reflection-1"></div>
-            <div class="button__reflection-2"></div>
-        </div>
-
-        <img src="../SourceImg/star.png" alt="none" class="button__star-1">
-        <img src="../SourceImg/star.png" alt="none" class="button__star-2">
-        <img src="../SourceImg/circle.png" alt="none" class="button__circle-1">
-        <img src="../SourceImg/circle.png" alt="none" class="button__circle-2">
-        <img src="../SourceImg/diamond.png" alt="none" class="button__diamond">
-        <img src="../SourceImg/triangle.png" alt="none" class="button__triangle">
-
-        <div class="button__shadow"></div>
-    </a>
-
-    <!-- Button 3 -->
-    <a href="AdminLogin.php" class="button">
-        <div class="button__content">
-            <span class="button__text">Admin Dashboard </span>
-            <i class="ri-download-cloud-fill button__icon"></i>
-
-            <div class="button__reflection-1"></div>
-            <div class="button__reflection-2"></div>
-        </div>
-
-        <img src="../SourceImg/star.png" alt="none" class="button__star-1">
-        <img src="../SourceImg/star.png" alt="none" class="button__star-2">
-        <img src="../SourceImg/circle.png" alt="none" class="button__circle-1">
-        <img src="../SourceImg/circle.png" alt="none" class="button__circle-2">
-        <img src="../SourceImg/diamond.png" alt="none" class="button__diamond">
-        <img src="../SourceImg/triangle.png" alt="none" class="button__triangle">
-
-        <div class="button__shadow"></div>
-    </a>
-</div>
-        </div>
-        <script src="mainpage.js"></script>
+    </div>
 </body>
 </html>
