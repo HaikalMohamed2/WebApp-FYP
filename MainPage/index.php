@@ -47,12 +47,12 @@
             <div class="button__reflection-2"></div>
         </div>
 
-        <img src="star.png" alt="none" class="button__star-1">
-        <img src="star.png" alt="none" class="button__star-2">
-        <img src="circle.png" alt="none" class="button__circle-1">
-        <img src="circle.png" alt="none" class="button__circle-2">
-        <img src="diamond.png" alt="none" class="button__diamond">
-        <img src="triangle.png" alt="none" class="button__triangle">
+        <img src="../SourceImg/star.png" alt="none" class="button__star-1">
+        <img src="../SourceImg/star.png" alt="none" class="button__star-2">
+        <img src="../SourceImg/circle.png" alt="none" class="button__circle-1">
+        <img src="../SourceImg/circle.png" alt="none" class="button__circle-2">
+        <img src="../SourceImg/diamond.png" alt="none" class="button__diamond">
+        <img src="../SourceImg/triangle.png" alt="none" class="button__triangle">
 
         <div class="button__shadow"></div>
     </a>
@@ -67,12 +67,12 @@
             <div class="button__reflection-2"></div>
         </div>
 
-        <img src="star.png" alt="none" class="button__star-1">
-        <img src="star.png" alt="none" class="button__star-2">
-        <img src="circle.png" alt="none" class="button__circle-1">
-        <img src="circle.png" alt="none" class="button__circle-2">
-        <img src="diamond.png" alt="none" class="button__diamond">
-        <img src="triangle.png" alt="none" class="button__triangle">
+        <img src="../SourceImg/star.png" alt="none" class="button__star-1">
+        <img src="../SourceImg/star.png" alt="none" class="button__star-2">
+        <img src="../SourceImg/circle.png" alt="none" class="button__circle-1">
+        <img src="../SourceImg/circle.png" alt="none" class="button__circle-2">
+        <img src="../SourceImg/diamond.png" alt="none" class="button__diamond">
+        <img src="../SourceImg/triangle.png" alt="none" class="button__triangle">
 
         <div class="button__shadow"></div>
     </a>
@@ -87,12 +87,12 @@
             <div class="button__reflection-2"></div>
         </div>
 
-        <img src="star.png" alt="none" class="button__star-1">
-        <img src="star.png" alt="none" class="button__star-2">
-        <img src="circle.png" alt="none" class="button__circle-1">
-        <img src="circle.png" alt="none" class="button__circle-2">
-        <img src="diamond.png" alt="none" class="button__diamond">
-        <img src="triangle.png" alt="none" class="button__triangle">
+        <img src="../SourceImg/star.png" alt="none" class="button__star-1">
+        <img src="../SourceImg/star.png" alt="none" class="button__star-2">
+        <img src="../SourceImg/circle.png" alt="none" class="button__circle-1">
+        <img src="../SourceImg/circle.png" alt="none" class="button__circle-2">
+        <img src="../SourceImg/diamond.png" alt="none" class="button__diamond">
+        <img src="../SourceImg/triangle.png" alt="none" class="button__triangle">
 
         <div class="button__shadow"></div>
     </a>
