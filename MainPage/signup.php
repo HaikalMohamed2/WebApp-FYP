@@ -12,7 +12,7 @@
 
         if(!empty($email) && !empty($password) && !is_numeric($email))
         {
-            $query = "insert into info (staff_id, username, email, password) values('$staff_id', '$username', '$email', '$password')";
+            $query = "insert into staffaccount (staff_id, username, email, password) values('$staff_id', '$username', '$email', '$password')";
 
             mysqli_query($conn, $query);
 
