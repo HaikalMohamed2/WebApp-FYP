@@ -15,7 +15,7 @@
     <header>
       <nav class="navbar navbar-expand-lg NavFont NavColor">
         <div class="container-fluid" id="navTheme">
-          <a href="#" class="navbar-brand"><img src="SourceImg\SEMUJA-Logo.jpg" width="20%" height="20%"></a>
+          <a href="MainPage\index.php" class="navbar-brand"><img src="SourceImg\SEMUJA-Logo.jpg" width="20%" height="20%"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,7 +23,7 @@
           <div class="collapse navbar-collapse" id="navbarNav" method="post">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="StaffDashboard.php">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
@@ -59,18 +59,18 @@
             <table class="table table-bordered table-striped table-light" id="TablePosition">
               <div class="row justify-content-center">
                 <div class="col-12 col-sm-3 mb-2">
-                  <button type="button" class="btn btn-success w-100 p-2" data-bs-toggle="modal"
-                    data-bs-target="#AddAbsencesModal">Add Absences</button>
+                    <button type="button" class="btn btn-success w-100 p-2" data-bs-toggle="modal" data-bs-target="#AddAbsencesModal">Add Absences</button>
                 </div>
                 <div class="col-12 col-sm-3 mb-2">
-                  <button type="button" class="btn btn-primary w-100 p-2" data-bs-toggle="modal"
-                    data-bs-target="#UpdateAbsencesModal">Update Absences</button>
+                    <button type="button" class="btn btn-primary w-100 p-2" data-bs-toggle="modal" data-bs-target="#UpdateAbsencesModal">Update Absences</button>
                 </div>
                 <div class="col-12 col-sm-3 mb-2">
-                  <button type="button" class="btn btn-danger w-100 p-2" data-bs-toggle="modal"
-                    data-bs-target="#DeleteAbsencesModal">Delete Absences</button>
+                    <button type="button" class="btn btn-danger w-100 p-2" data-bs-toggle="modal" data-bs-target="#DeleteAbsencesModal">Delete Absences</button>
                 </div>
               </div>
+          </div>
+        </div>
+
 
               <!-- Modal (Dialog Box / Popup Window) -->
               <!-- Add Absences -->
@@ -306,12 +306,6 @@
                           <textarea class="form-control" id="otherReasonUpdate" rows="3" name="OtherReason"></textarea>
                         </div>
 
-                        <!-- Upload PDF File -->
-                        <!-- <div class="mb-3">
-                          <label class="form-label">Upload Leave Letter</label>
-                          <input class="form-control" type="file" name="LeaveLetterFile">
-                        </div> -->
-
                         <div class="modal-footer">
                           <button type="reset" class="btn btn-secondary" data-bs-dismiss="">Clear</button>
                           <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
@@ -359,6 +353,16 @@
               <thead align="center">
                 <th colspan="6" class="text-bg-dark">STAFF AND TEACHER ABSENCE LIST</th>
                 <tr>
+                  <th colspan="6">
+                    <!-- Search Input -->
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-sm-6">
+                            <input class="form-control" id="searchInput" type="text" placeholder="Search...">
+                        </div>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
                   <th scope="col">Staff ID</th>
                   <th scope="col">Name</th>
                   <th scope="col">Class</th>
@@ -367,22 +371,20 @@
                   <th scope="col">Substitute Teacher</th>
                 </tr>
               </thead>
-              <!-- <tbody align="center">
-                
-              </tbody> -->
             </table>
           </div>
           <br>
-          <!-- Pagination Page -->
-          <nav aria-label="">
-            <ul class="pagination justify-content-center">
-              <li class="page-item disabled"><a class="page-link">Previous</a></li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
+          <!-- Pagination links -->
+          <nav aria-label="Page navigation">
+              <ul class="pagination justify-content-center">
+                  <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
+                      <li class="page-item <?php echo $page == $i ? 'active' : ''; ?>">
+                          <a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                      </li>
+                  <?php endfor; ?>
+              </ul>
           </nav>
+
         </div>
       </div>
     </div>
@@ -397,6 +399,7 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+      // Javascript for display other reason absence - 1
       document.getElementById('absenceReasonAdd').addEventListener('change', function () 
       {
         var otherReasonTextareaAdd = document.getElementById('otherReasonTextareaAdd');
@@ -410,6 +413,7 @@
         }
       });
 
+      // Javascript for display other reason absence - 2
       document.getElementById('absenceReasonUpdate').addEventListener('change', function () 
       {
         var otherReasonTextareaUpdate = document.getElementById('otherReasonTextareaUpdate');
@@ -422,6 +426,36 @@
           otherReasonTextareaUpdate.style.display = 'none';
         }
       });
+
+      // Javascript for search data inside table
+      document.getElementById('searchInput').addEventListener('input', function () 
+      {
+        const searchText = this.value.toLowerCase();
+        const rows = document.querySelectorAll('#TablePosition tbody tr');
+
+        rows.forEach(row => 
+        {
+            const columns = row.querySelectorAll('td');
+            let found = false;
+
+            columns.forEach(column => 
+            {
+                if (column.textContent.toLowerCase().includes(searchText)) 
+                {
+                    found = true;
+                }
+            });
+
+            if (found) 
+            {
+                row.style.display = '';
+            } 
+            else 
+            {
+                row.style.display = 'none';
+            }
+        });
+    });
     </script>
   </body>
 </html>

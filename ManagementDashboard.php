@@ -14,7 +14,7 @@
   <header>
     <nav class="navbar navbar-expand-lg NavFont NavColor">
       <div class="container-fluid">
-        <a href="#" class="navbar-brand"><img src="SourceImg\SEMUJA-Logo.jpg" width="20%" height="20%"></a>
+        <a href="MainPage\index.php" class="navbar-brand"><img src="SourceImg\SEMUJA-Logo.jpg" width="20%" height="20%"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -57,12 +57,22 @@
       <div class="col">
         <br><h2 class="text-center">Management Dashboard</h2><br>
         <div class="table-responsive">
-          <table class="table table-bordered table-striped table-light">
+          <table class="table table-bordered table-striped table-light" id="TableData">
 
             <?php include('MgmtDB.php')?>
             <thead align="center">
               <tr>
                 <th colspan="8" class="text-bg-dark">STAFF AND TEACHER ABSENCE LIST</th>
+                <tr>
+                  <th colspan="8">
+                    <!-- Search Input -->
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-sm-6">
+                            <input class="form-control" id="searchInput" type="text" placeholder="Search...">
+                        </div>
+                    </div>
+                  </th>
+                </tr>
                 <tr>
                   <th scope="col">Staff ID</th>
                   <th scope="col">Name</th>
@@ -80,6 +90,17 @@
             </thead>
           </table>
         </div>
+        <br>
+        <!-- Pagination links -->
+          <nav aria-label="Page navigation">
+              <ul class="pagination justify-content-center">
+                  <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
+                      <li class="page-item <?php echo $page == $i ? 'active' : ''; ?>">
+                          <a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                      </li>
+                  <?php endfor; ?>
+              </ul>
+          </nav>
       </div>
     </div>
   </div>
@@ -95,5 +116,36 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+      // Javascript for search data inside table
+      document.getElementById('searchInput').addEventListener('input', function () 
+      {
+        const searchText = this.value.toLowerCase();
+        const rows = document.querySelectorAll('#TableData tbody tr');
+
+        rows.forEach(row => 
+        {
+            const columns = row.querySelectorAll('td');
+            let found = false;
+
+            columns.forEach(column => 
+            {
+                if (column.textContent.toLowerCase().includes(searchText)) 
+                {
+                    found = true;
+                }
+            });
+
+            if (found) 
+            {
+                row.style.display = '';
+            } 
+            else 
+            {
+                row.style.display = 'none';
+            }
+        });
+    });
+    </script>
 </body>
 </html>

@@ -1,6 +1,20 @@
 <?php
     include('DBConn.php');
 
+    /* Pagination for number of record on table */
+    // Calculate total number of records
+    $countQuery = "SELECT COUNT(*) AS total FROM `staffattendance`";
+    $countResult = mysqli_query($conn, $countQuery);
+    $totalRecords = mysqli_fetch_assoc($countResult)['total'];
+
+    // Calculate total number of pages
+    $recordsPerPage = 50;
+    $totalPages = ceil($totalRecords / $recordsPerPage);
+
+    // Determine current page number
+    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+    $offset = ($page - 1) * $recordsPerPage;
+
     $updateResult = '';
 
     if (!$conn) 
@@ -30,6 +44,14 @@
 
     // Select all data from DB and display on table with Descending Order(DESC)
     $query = "SELECT * FROM `staffattendance` ORDER BY Date DESC";
+    $result = mysqli_query($conn, $query);
+
+    // Determine current page number
+    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+    $offset = ($page - 1) * $recordsPerPage;
+
+    // Modify your existing query to include LIMIT and OFFSET for pagination
+    $query = "SELECT * FROM `staffattendance` ORDER BY Date DESC LIMIT $recordsPerPage OFFSET $offset";
     $result = mysqli_query($conn, $query);
 
     // Display all data from Table and display on webpage table for Admin Dashboard

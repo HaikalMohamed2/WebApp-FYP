@@ -1,38 +1,72 @@
 <?php
-    session_start();
-    include('../DBConn.php');
+  session_start();
+  include('../DBConn.php');
 
-    if($_SERVER['REQUEST_METHOD'] == "POST")
-    {
+  if ($_SERVER['REQUEST_METHOD'] == "POST") 
+  {
       $email = $_POST['email'];
       $password = $_POST['password'];
 
-      if(!empty($email) && !empty($password) && !is_numeric($email))
+      if (!empty($email) && !empty($password) && !is_numeric($email)) 
       {
-          $query = "select * from staffaccount where email = '$email' limit 1";
-          $result = mysqli_query($conn, $query);
+          $query = "SELECT * FROM staffaccount WHERE email = ? LIMIT 1";
+          $stmt = $conn->prepare($query);
+          $stmt->bind_param("s", $email);
+          $stmt->execute();
+          $result = $stmt->get_result();
 
-          if($result)
+          if ($result && $result->num_rows > 0) 
           {
-            if($result && mysqli_num_rows($result) > 0)
-            {
-                $user_data = mysqli_fetch_assoc($result); 
+              $user_data = $result->fetch_assoc();
 
-                if($user_data['password'] == $password)
-                {
-                    header("location: ../ManagementDashboard.php");
-                    die;
-                }
-            }
+              if ($user_data['password'] == $password) 
+              {
+                  if ($user_data['status'] == 'accepted') 
+                  {
+                      // Check if the user is allowed to login based on their role
+                      if ($user_data['role'] == 'Management' || $user_data['role'] == 'Both') 
+                      {
+                          // Redirect to the Management dashboard
+                          header("Location: ../ManagementDashboard.php");
+                          die;
+                      } 
+                      else 
+                      {
+                          // Role not set or invalid, display error message
+                          echo "<script>alert('Invalid role.');</script>";
+                      }
+                  } 
+                  elseif ($user_data['status'] == 'pending') 
+                  {
+                      // Account is pending, display error message
+                      echo "<script>alert('Your account is pending approval. Please wait for admin approval.');</script>";
+                  } 
+                  elseif ($user_data['status'] == 'declined') 
+                  {
+                      // Account is declined, display error message
+                      echo "<script>alert('Your account has been declined by the admin. Please contact support for more information.');</script>";
+                  }
+              } 
+              else 
+              {
+                  // Incorrect password, display error message
+                  echo "<script>alert('Wrong email or password.');</script>";
+              }
+          } 
+          else 
+          {
+              // User not found, display error message
+              echo "<script>alert('Wrong email or password.');</script>";
           }
-          echo " <script type='text/javascript'> alert('wrong email or password')</script>";
-      }
-      else
+      } 
+      else 
       {
-        echo " <script type='text/javascript'> alert('wrong email or password')</script>";
+          // Invalid input, display error message
+          echo "<script>alert('Wrong email or password.');</script>";
       }
-    }
+  }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
