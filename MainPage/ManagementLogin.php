@@ -29,6 +29,10 @@
                           // Redirect to the Management dashboard
                           header("Location: ../ManagementDashboard.php");
                           die;
+                      }
+                      elseif ($user_data['role'] == 'Staff') 
+                      {
+                        echo "<script>alert('You do not have permission to log in using this account.');</script>";
                       } 
                       else 
                       {

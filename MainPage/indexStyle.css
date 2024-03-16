@@ -108,6 +108,10 @@
 
 @media (min-width: 1200px) 
 {
+  .Btn-container 
+  {
+    gap: -100%;
+  }
   /* Set width and height for carousel images */
   .carousel-item img 
   {
@@ -166,7 +170,7 @@
 
 .BodyBg
 {
-  background: url(../SourceImg/SEMUJA-BgImage.png);
+  background-image: url(../SourceImg/SEMUJA-BgImage.png);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
@@ -222,7 +226,6 @@ a
   display: grid;
   place-items: center;
   display: flex;
-  justify-content: space-around;
 }
 
 .button 

@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
+/* Media queries for responsive design */
+@media (min-width: 576px) 
+{
+    .section 
+    {
+      padding: 20px;
+    }
+    .section h2 
+    {
+      font-size: 18px;
+    }
+    .section p 
+    {
+      font-size: 14px;
+    }
+}
+  
+@media (min-width: 768px) 
+{
+    .section 
+    {
+        padding: 30px;
+    }
+    .section h2 
+    {
+        font-size: 22px;
+    }
+    .section p 
+    {
+        font-size: 16px;
+    }
+}
+  
+@media (min-width: 992px) 
+{
+    .section 
+    {
+        padding: 40px;
+    }
+    .section h2 
+    {
+        font-size: 26px;
+    }
+    .section p 
+    {
+        font-size: 18px;
+    }
+}
+  
+@media (min-width: 1200px) 
+{
+    .section 
+    {
+      padding: 50px;
+    }
+    .section h2 
+    {
+      font-size: 30px;
+    }
+    .section p 
+    {
+      font-size: 20px;
+    }
+}
+
+body 
+{
+    margin: 0;
+    font-family: 'Montserrat';
+}
+
+/* Nav Bar */
+.NavSet 
+{
+  
+  font-size: large;
+  font-family: 'Montserrat';
+  text-align: center;
+  background-color: rgba(6, 224, 253, 0.495);
+}
+
+.logo 
+{
+  display: flex;
+  align-items: center;
+}
+
+.logo img 
+{
+    width: 50px;
+}
+
+/* Footer */
+.FooterStyle
+{
+  background-color: rgba(6, 224, 253, 0.495);
+  font-family: 'Montserrat';
+  text-align: center;
+  bottom: 0;
+  width: auto;
+}
+
+/* Style the sections */
+.section 
+{
+    padding: 50px; /* Add space around each section */
+    text-align: center;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Add a pseudo-element for the overlay */
+.section::before 
+{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust the opacity as needed */
+    backdrop-filter: blur(5px); /* Apply a blur effect to the overlay */
+}
+
+/* Center the content */
+.section h2,
+.section p 
+{
+    position: relative;
+    z-index: 1; /* Ensure content is above the overlay */
+}
+
+/* Specify background images for each section */
+.section1 
+{
+    background-image: url('SourceImg/scenery1.png');
+}
+
+.section2 
+{
+    background-image: url('SourceImg/sunset1.png');
+}
+
+/* Card style in Section 2*/
+.cardStyle
+{
+    width: 18rem;
+}
+.card-container 
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust the gap between cards */
+}
+.card 
+{
+    flex: 1 1 30px; /* Flexbox shorthand for flex-grow, flex-shrink, flex-basis */
+    /* Adjust the width of the cards as needed */
+    /* For example, if you want 3 cards in a row, set flex-basis to calc(33.33% - 20px) */
+    transition: transform 0.3s;
+}
+.card:hover 
+{
+    transform: scale(1.05); /* Increase the scale on hover */
+}
+  
+@media (max-width: 425px) 
+{
+    .card-container 
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card:nth-child(3) 
+    {
+        margin: 10px auto; /* Adjust margin as needed */
+        /* Use auto margins to center the third card */
+    }
+}
+.clearfix 
+{
+    position: relative; /* Set the parent container to relative positioning */
+    text-align: center; /* Center the text horizontally */
+    margin-bottom: 20px; /* Add some margin below the image */
+  
+}
+
+.clearfix img 
+{
+    width: 100%; /* Ensure the image takes the full width of its container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure the image is a block element */
+}
+
+.text-on-image 
+{
+    position: absolute; /* Position the text absolutely */
+    top: 50%; /* Position the text vertically in the center */
+    left: 50%; /* Position the text horizontally in the center */
+    transform: translate(-50%, -50%); /* Center the text precisely */
+    color: white; /* Set text color */
+    font-size: 24px; /* Set font size */
+    z-index: 2; /* Ensure text appears above the image */
+}
+
+@keyframes fadeIn 
+{
+    from 
+    {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to 
+    {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.p-3 img 
+{
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeIn 1s ease-in-out forwards; 
+}
+
+/* Calculate animation delay based on image index */
+.col:nth-child(1) .p-3 img 
+{
+    animation-delay: calc(0.5s * 1);
+}
+  
+.col:nth-child(2) .p-3 img 
+{
+    animation-delay: calc(0.5s * 2);
+}
+
+.col:nth-child(3) .p-3 img 
+{
+    animation-delay: calc(0.5s * 3);
+}
+
+.col:nth-child(4) .p-3 img 
+{
+    animation-delay: calc(0.5s * 4);
+}
+
+.col:nth-child(5) .p-3 img 
+{
+    animation-delay: calc(0.5s * 5);
+}
+
+.col:nth-child(6) .p-3 img 
+{
+    animation-delay: calc(0.5s * 6);
+}
+  

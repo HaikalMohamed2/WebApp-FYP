@@ -66,13 +66,13 @@
                     <div id="carouselExampleAutoplaying" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="../SourceImg/InfoPicture/Info1.jpg" class="d-block" alt="">
+                                <img src="../SourceImg/InfoPicture/Info1.jpg" class="d-inline" alt="">
                             </div>
                             <div class="carousel-item">
-                                <img src="../SourceImg/InfoPicture/Info2.jpg" class="d-block" alt="">
+                                <img src="../SourceImg/InfoPicture/Info2.jpg" class="d-inline" alt="">
                             </div>
                             <div class="carousel-item">
-                                <img src="../SourceImg/InfoPicture/Info3.jpg" class="d-block" alt="">
+                                <img src="../SourceImg/InfoPicture/Info3.jpg" class="d-inline" alt="">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">

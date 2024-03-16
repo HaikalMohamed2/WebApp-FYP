@@ -24,19 +24,11 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="About.php" target="_blank">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Help</a>
             </li>
-            <!-- <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownManage" role="button" data-bs-toggle="dropdown" aria-expanded="false">Manage</a>
-              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownManage">
-                <li><a class="dropdown-item" href="#">Staff Account</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Database</a></li>
-              </ul>
-            </li> -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAccount" role="button" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownAccount">
@@ -57,7 +49,7 @@
       <div class="col">
         <br><h2 class="text-center">Management Dashboard</h2><br>
         <div class="table-responsive">
-          <table class="table table-bordered table-striped table-light" id="TableData">
+          <table class="table table-bordered table-striped table-light table-hover table-sm" id="TableData">
 
             <?php include('MgmtDB.php')?>
             <thead align="center">

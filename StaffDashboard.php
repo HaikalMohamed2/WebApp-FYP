@@ -26,10 +26,10 @@
                 <a class="nav-link active" aria-current="page" href="StaffDashboard.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="About.php" target="_blank">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Help</a>
+                <a class="nav-link" href="">Help</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAccount" role="button"
@@ -56,7 +56,7 @@
           <h2 class="text-center">Staff Dashboard</h2><br>
           <!-- Table -->
           <div class="table-responsive">
-            <table class="table table-bordered table-striped table-light" id="TablePosition">
+            <table class="table table-bordered table-striped table-light table-hover table-sm" id="TablePosition">
               <div class="row justify-content-center">
                 <div class="col-12 col-sm-3 mb-2">
                     <button type="button" class="btn btn-success w-100 p-2" data-bs-toggle="modal" data-bs-target="#AddAbsencesModal">Add Absences</button>
