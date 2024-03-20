@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>SAMS MAIN PAGE</title>
     <!-- Bootstrap for CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -40,15 +40,11 @@
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../AboutPage/About.php">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">News</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="#">Help</a>
                         </li>
                     </ul>
                 </div>
@@ -58,6 +54,8 @@
 
     <!-- Page Content -->
     <div class="container ContentColor">
+        <br>
+        <h3 class="MainTitle">Welcome To SAMS Main Page</h3>
         <div class="row">
             <div class="col">
                 <br>

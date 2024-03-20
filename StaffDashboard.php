@@ -15,7 +15,7 @@
     <header>
       <nav class="navbar navbar-expand-lg NavFont NavColor">
         <div class="container-fluid" id="navTheme">
-          <a href="MainPage\index.php" class="navbar-brand"><img src="SourceImg\SEMUJA-Logo.jpg" width="20%" height="20%"></a>
+          <a href="MainPage\index.php" class="navbar-brand"><img src="SourceImg\SEMUJA.png" width="20%" height="20%"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -26,21 +26,10 @@
                 <a class="nav-link active" aria-current="page" href="StaffDashboard.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="About.php" target="_blank">About</a>
+                <a class="nav-link" href="AboutPage\About.php" target="_blank">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="">Help</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAccount" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false">Account</a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownAccount">
-                  <li><a class="dropdown-item" href="#">Your Profile</a></li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
-                  <li><a class="dropdown-item" href="LogoutSession/StaffLogout.php">Log Out</a></li>
-                </ul>
+                <a class="nav-link" href="LogoutSession/StaffLogout.php">Sign Out</a>
               </li>
             </ul>
           </div>

@@ -19,11 +19,29 @@
     <header>
         <nav class="navbar navbar-expand-lg NavSet flex-column">
             <div class="container-fluid">
-                <div class="logo">
-                    <img src="SourceImg/SEMUJA.png" alt="SAMS">
-                </div>
+              <!-- Navigation Toggle Button -->
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+              </button>
+ 
                 <div class="d-flex align-items-center mx-auto d-lg-none">
                     <span class="mx-auto">ABOUT SAMS</span>
+                </div>
+
+                <div class="logo">
+                    <img src="../SourceImg/SEMUJA.png" alt="SAMS">
+                </div>
+
+                <!-- Navigation Toggle -->
+                <div class="collapse navbar-collapse" id="navbarNav" method="post">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="../MainPage/index.php">Home</a>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="../AboutPage/About.php">About</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -39,7 +57,7 @@
         <div class="container text-center">
             <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
               <div class="col">
-                <div class="p-3"><img src="SourceImg/sakura.png"></div>
+                <div class="p-3"><img src="../SourceImg/ImgSystem/MainPage-Img.png"></div>
               </div>
               <div class="col">
                 <div class="p-3"><img src="SourceImg/sakura.png"></div>
@@ -85,22 +103,26 @@
         <div class="card cardStyle">
           <img src="SourceImg/InfoPicture/Info3.jpg" class="card-img-top" alt="">
           <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">Suhaili<br>Leader</p>
           </div>
         </div>
 
         <div class="card cardStyle">
-          <img src="SourceImg/InfoPicture/Info3.jpg" class="card-img-top" alt="">
+          <img src="TeamImg/Dev1.png" class="card-img-top" alt="">
           <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">Haikal Bin Mohamed<br>Member 1</p>
           </div>
         </div>
         <div class="card cardStyle">
           <img src="SourceImg/InfoPicture/Info3.jpg" class="card-img-top" alt="">
             <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p class="card-text">Fakhrul<br>Member 2</p>
             </div>
         </div>
+        <p>
+          A paragraph of placeholder text. We're using it here to show the use of the clearfix class. 
+          We're adding quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.
+        </p>
         </div>
       </div>
     </div>

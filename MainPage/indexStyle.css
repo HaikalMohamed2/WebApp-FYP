@@ -181,6 +181,12 @@
   text-align: center;
 }
 
+.MainTitle
+{
+  font-family: 'Montserrat';
+  text-align: center;
+}
+
 /*=============== VARIABLES CSS ===============*/
 :root 
 {

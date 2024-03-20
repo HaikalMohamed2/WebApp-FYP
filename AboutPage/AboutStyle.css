@@ -138,18 +138,18 @@ body
 /* Specify background images for each section */
 .section1 
 {
-    background-image: url('SourceImg/scenery1.png');
+    background-image: url('../SourceImg/scenery1.png');
 }
 
 .section2 
 {
-    background-image: url('SourceImg/sunset1.png');
+    background-image: url('../SourceImg/sunset1.png');
 }
 
 /* Card style in Section 2*/
 .cardStyle
 {
-    width: 18rem;
+    width: 10rem;
 }
 .card-container 
 {
