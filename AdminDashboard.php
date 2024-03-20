@@ -45,11 +45,7 @@
           <div class="col">
               <br>
               <h2 class="text-center">Administrator Dashboard</h2><br>
-              <!-- Table -->
-              <div class="table-responsive">
-                <table class="table table-bordered table-striped table-light table-hover table-sm " id="TablePosition">
-
-                <div class="row justify-content-center">
+              <div class="row justify-content-center">
                     <div class="col-12 col-sm-3 mb-2">
                       <button type="button" class="btn btn-success w-100 p-2" data-bs-toggle="modal"
                         data-bs-target="#AddAccountModal">Add Account</button>
@@ -63,7 +59,10 @@
                         data-bs-target="#DeleteAccountModal">Delete Account</button>
                     </div>
                   </div>
-
+              <!-- Table -->
+              <div class="table-responsive">
+                <table class="table table-bordered table-striped table-light table-hover table-sm " id="TablePosition">
+                  
                   <!-- Modal (Dialog Box / Popup Window) -->
                   <!-- Add Account -->
                   <div class="modal fade" id="AddAccountModal" data-bs-backdrop="static" data-bs-keyboard="false"

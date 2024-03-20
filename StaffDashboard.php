@@ -43,10 +43,7 @@
         <div class="col">
           <br>
           <h2 class="text-center">Staff Dashboard</h2><br>
-          <!-- Table -->
-          <div class="table-responsive">
-            <table class="table table-bordered table-striped table-light table-hover table-sm" id="TablePosition">
-              <div class="row justify-content-center">
+          <div class="row justify-content-center">
                 <div class="col-12 col-sm-3 mb-2">
                     <button type="button" class="btn btn-success w-100 p-2" data-bs-toggle="modal" data-bs-target="#AddAbsencesModal">Add Absences</button>
                 </div>
@@ -57,10 +54,13 @@
                     <button type="button" class="btn btn-danger w-100 p-2" data-bs-toggle="modal" data-bs-target="#DeleteAbsencesModal">Delete Absences</button>
                 </div>
               </div>
+          <!-- Table -->
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped table-light table-hover table-sm" id="TablePosition">
+
           </div>
         </div>
-
-
+        
               <!-- Modal (Dialog Box / Popup Window) -->
               <!-- Add Absences -->
               <div class="modal fade" id="AddAbsencesModal" data-bs-backdrop="static" data-bs-keyboard="false"
