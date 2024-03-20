@@ -60,37 +60,25 @@
                 <div class="p-3"><img src="../SourceImg/ImgSystem/MainPage-Img.png"></div>
               </div>
               <div class="col">
-                <div class="p-3"><img src="SourceImg/sakura.png"></div>
+                <div class="p-3"><img src="../SourceImg/ImgSystem/StaffDasboardPage.png"></div>
               </div>
               <div class="col">
-                <div class="p-3"><img src="SourceImg/sakura.png"></div>
+                <div class="p-3"><img src="../SourceImg/ImgSystem/ManagementDashboard.png"></div>
               </div>
               <div class="col">
-                <div class="p-3"><img src="SourceImg/sakura.png"></div>
-              </div>
-              <div class="col">
-                <div class="p-3"><img src="SourceImg/sakura.png"></div>
-              </div>
-              <div class="col">
-                <div class="p-3"><img src="SourceImg/sakura.png"></div>
+                <div class="p-3"><img src="../SourceImg/ImgSystem/AdminDashboard.png"></div>
               </div>
             </div>
           </div>
-
         <p>
-          A paragraph of placeholder text. We're using it here to show the use of the clearfix class. 
-          We're adding quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.
+        The School Staff Attendance Monitoring System, or SAMS, makes ensuring that staff attendance in educational 
+        institutions is accurately tracked. Teachers and other staff members log into the system to track their attendance. 
+        Staff members can choose to make up lost time at another specified time if they are not present for the required number of hours. 
         </p>
 
         <p>
-          As you can see the paragraphs gracefully wrap around the floated image. Now imagine how this 
-          would look with some actual content in here, rather than just this boring placeholder text that goes on and on, 
-          but actually conveys no tangible information at. It simply takes up space and should not really be read.
-        </p>
-
-        <p>
-          And yet, here you are, still persevering in reading this placeholder text, hoping for some more 
-          insights, or some hidden easter egg of content. A joke, perhaps. Unfortunately, there's none of that here.
+        This feature guarantees that employees complete their required hours and encourages accountability. Sensitive data is protected by robust system security mechanisms. 
+        Furthermore, the system exhibits the attendance percentage.
         </p>
       </div>
     </div>
@@ -99,30 +87,28 @@
     <div class="section section2">
       <h2>About Teams</h2>
       <br>
+      <p>We are Polytechnic Muadzam Shah fifth semester students working with SEMUJA on this system as part of a final semester project course.</p>
+      <br>
       <div class="card-container">
         <div class="card cardStyle">
-          <img src="SourceImg/InfoPicture/Info3.jpg" class="card-img-top" alt="">
+          <img src="TeamImg/Suhaili(Leader).png" class="card-img-top" alt="">
           <div class="card-body">
-            <p class="card-text">Suhaili<br>Leader</p>
+            <p class="card-text">Muhamad Suhaili Aqil Bin Abdul Rahman<br><hr>Leader<hr><b>Role as</b> Project Manager</p>
           </div>
         </div>
 
         <div class="card cardStyle">
-          <img src="TeamImg/Dev1.png" class="card-img-top" alt="">
+          <img src="TeamImg/Haikal(member1).png" class="card-img-top" alt="">
           <div class="card-body">
-            <p class="card-text">Haikal Bin Mohamed<br>Member 1</p>
+            <p class="card-text">Haikal Bin Mohamed<br><hr>Member 1<hr><b>Role as</b> Programmer 1</p>
           </div>
         </div>
         <div class="card cardStyle">
-          <img src="SourceImg/InfoPicture/Info3.jpg" class="card-img-top" alt="">
+          <img src="" class="card-img-top" alt="">
             <div class="card-body">
-              <p class="card-text">Fakhrul<br>Member 2</p>
+              <p class="card-text">Mohamad Fakhrul Haqimi Bin Edris<br><hr>Member 2<hr><b>Role as</b> Programmer 2</p>
             </div>
         </div>
-        <p>
-          A paragraph of placeholder text. We're using it here to show the use of the clearfix class. 
-          We're adding quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.
-        </p>
         </div>
       </div>
     </div>

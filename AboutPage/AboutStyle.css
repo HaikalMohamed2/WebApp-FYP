@@ -110,7 +110,7 @@ body
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 100vh;
+    min-height: 80vh;
     position: relative;
 }
 
@@ -138,12 +138,12 @@ body
 /* Specify background images for each section */
 .section1 
 {
-    background-image: url('../SourceImg/scenery1.png');
+    background-image: url('../SourceImg/AboutBgImg.png');
 }
 
 .section2 
 {
-    background-image: url('../SourceImg/sunset1.png');
+    background-image: url('../SourceImg/AboutBgImg2.png');
 }
 
 /* Card style in Section 2*/
@@ -155,13 +155,17 @@ body
 {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Adjust the gap between cards */
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
 }
 .card 
 {
-    flex: 1 1 30px; /* Flexbox shorthand for flex-grow, flex-shrink, flex-basis */
-    /* Adjust the width of the cards as needed */
-    /* For example, if you want 3 cards in a row, set flex-basis to calc(33.33% - 20px) */
+    width: 20%; /* Set the width to auto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Center the text content */
     transition: transform 0.3s;
 }
 .card:hover 
@@ -182,7 +186,23 @@ body
         margin: 10px auto; /* Adjust margin as needed */
         /* Use auto margins to center the third card */
     }
+
+    .card
+    {
+        width: 60%;
+    }
 }
+
+.card-img-top 
+{
+    width: 100%; 
+    height: auto; 
+    display: block;
+    margin-top: 20px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .clearfix 
 {
     position: relative; /* Set the parent container to relative positioning */
@@ -193,20 +213,21 @@ body
 
 .clearfix img 
 {
-    width: 100%; /* Ensure the image takes the full width of its container */
+    width: 80%; /* Ensure the image takes the full width of its container */
     height: auto; /* Maintain aspect ratio */
     display: block; /* Ensure the image is a block element */
 }
 
 .text-on-image 
 {
-    position: absolute; /* Position the text absolutely */
-    top: 50%; /* Position the text vertically in the center */
-    left: 50%; /* Position the text horizontally in the center */
-    transform: translate(-50%, -50%); /* Center the text precisely */
-    color: white; /* Set text color */
-    font-size: 24px; /* Set font size */
-    z-index: 2; /* Ensure text appears above the image */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(156, 90, 90);
+    font-family: 'Montserrat';
+    font-size: 24px;
+    z-index: 2;
 }
 
 @keyframes fadeIn 
@@ -260,4 +281,3 @@ body
 {
     animation-delay: calc(0.5s * 6);
 }
-  
