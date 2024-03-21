@@ -6,6 +6,7 @@
     <title>SAMS MAIN PAGE</title>
     <!-- Bootstrap for CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Bootstrap for JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -39,12 +40,12 @@
                 <div class="collapse navbar-collapse" id="navbarNav" method="post">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                            <a class="nav-link active" aria-current="page" href="index.php"><i class="bi bi-house-door"></i> Home</a>
                         <li class="nav-item">
-                            <a class="nav-link" href="../AboutPage/About.php">About</a>
+                            <a class="nav-link" href="../AboutPage/About.php"><i class="bi bi-info-circle"></i> About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Help</a>
+                            <a class="nav-link" href="tyy.php"><i class="bi bi-question-circle"></i> Help</a>
                         </li>
                     </ul>
                 </div>

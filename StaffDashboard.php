@@ -6,6 +6,8 @@
     <title>Staff Dashboard</title>
     <!-- Bootstrap for CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    
     <!-- Custom CSS -->
     <link href="MyStyle.css" rel="stylesheet">
   </head>
@@ -23,13 +25,13 @@
           <div class="collapse navbar-collapse" id="navbarNav" method="post">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="StaffDashboard.php">Home</a>
+                <a class="nav-link active" aria-current="page" href="StaffDashboard.php"><i class="bi bi-house-door"></i> Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="AboutPage\About.php" target="_blank">About</a>
+                <a class="nav-link" href="AboutPage\About.php" target="_blank"><i class="bi bi-info-circle"></i> About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="LogoutSession/StaffLogout.php">Sign Out</a>
+                <a class="nav-link" href="LogoutSession/StaffLogout.php"><i class="bi bi-box-arrow-right"></i> Sign Out</a>
               </li>
             </ul>
           </div>
@@ -379,7 +381,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer mt-auto py-3 FooterColor">
+    <footer class="FooterStyle">
       <div class="container">
         <span class="text-muted">@SEMUJA SAMS 2024</span>
       </div>

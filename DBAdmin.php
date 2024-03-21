@@ -27,8 +27,11 @@
         $updateResult = '';
 
         // Select all pending and accepted/declined data from DB and display on table
-        $query = "SELECT * FROM `staffaccount` WHERE status = 'pending' OR status = 'accepted' OR status = 'declined' ORDER BY staff_id DESC LIMIT $recordsPerPage OFFSET $offset";
-        $result = mysqli_query($conn, $query);
+        $query = "SELECT * FROM `staffaccount` WHERE status = 'pending' OR status = 'accepted' OR status = 'declined' ORDER BY staff_id DESC LIMIT ? OFFSET ?";
+        $stmt = mysqli_prepare($conn, $query);
+        mysqli_stmt_bind_param($stmt, 'ii', $recordsPerPage, $offset);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
 
         $rowNumber = 1; // Initialize the row number
 
@@ -93,8 +96,10 @@
             $role = mysqli_real_escape_string($conn, $_POST['role']);
 
             // Update the role in the database
-            $updateQuery = "UPDATE `staffaccount` SET `role` = '$role' WHERE `staff_id` = '$staff_id'";
-            if (mysqli_query($conn, $updateQuery)) 
+            $updateQuery = "UPDATE `staffaccount` SET `role` = ? WHERE `staff_id` = ?";
+            $stmt = mysqli_prepare($conn, $updateQuery);
+            mysqli_stmt_bind_param($stmt, 'ss', $role, $staff_id);
+            if (mysqli_stmt_execute($stmt)) 
             {
                 echo "<script>alert('Role set successfully');</script>";
                 ?>
@@ -111,6 +116,82 @@
             {
                 echo "<script>alert('Failed to set role');</script>";
             }
+        }
+
+        // Insert data into DB and show in table
+        if (isset($_POST['Add'])) 
+        {
+            $StaffID = $_POST['StaffID'];
+            $Username = $_POST['StaffUname'];
+            $Password = $_POST['StaffPassName'];
+            $Email = $_POST['StaffEmail'];
+
+            // Use prepared statement to avoid SQL injection
+            $InsertQuery = $conn->prepare("INSERT INTO `staffaccount` (staff_id, username, password, email) VALUES (?, ?, ?, ?)");
+            $InsertQuery->bind_param("ssss", $StaffID, $Username, $Password, $Email);
+            $InsertQuery->execute();
+            echo "<script>alert('Succesfully added an account.');</script>";
+
+            // Auto Refresh Webpage when delete button is clicked
+            ?>
+                <script>
+                    function autoRefresh()
+                    {
+                        window.location = window.location.href;
+                    }
+                    setInterval('autoRefresh()', 1000);
+                </script>
+            <?php
+        }
+
+        // Update data from DB and show in table
+        if (isset($_POST['Update'])) 
+        {
+            $StaffID = $_POST['StaffID'];
+            $Username = $_POST['StaffUname'];
+            $Password = $_POST['StaffPassName'];
+            $Email = $_POST['StaffEmail'];
+
+            // Use prepared statement to avoid SQL injection
+            $UpdateQuery = $conn->prepare("UPDATE `staffaccount` SET username=?, password=?, email=? WHERE staff_id=?");
+            $UpdateQuery->bind_param("ssss", $Username, $Password, $Email, $StaffID);
+            $UpdateQuery->execute();
+            echo "<script>alert('Succesfully update an account.');</script>";
+
+            // Auto Refresh Webpage when delete button is clicked
+            ?>
+                <script>
+                    function autoRefresh()
+                    {
+                        window.location = window.location.href;
+                    }
+                    setInterval('autoRefresh()', 1000);
+                </script>
+            <?php
+        }
+
+        // Delete data from DB and show in table
+        if (isset($_POST['Delete'])) 
+        {
+            $StaffID = $_POST['StaffID'];
+            $Email = $_POST['StaffEmail'];
+
+            // Use prepared statement to avoid SQL injection
+            $DeleteQuery = $conn->prepare("DELETE FROM `staffaccount` WHERE staff_id=? AND email=?");
+            $DeleteQuery->bind_param("ss", $StaffID, $Email);
+            $DeleteQuery->execute();
+            echo "<script>alert('Succesfully deleted an account.');</script>";
+
+            // Auto Refresh Webpage when delete button is clicked
+            ?>
+                <script>
+                    function autoRefresh()
+                    {
+                        window.location = window.location.href;
+                    }
+                    setInterval('autoRefresh()', 1000);
+                </script>
+            <?php
         }
     }
 ?>

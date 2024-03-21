@@ -34,11 +34,11 @@
 
             if ($result) 
             {
-                $updateResult = 'success';
+                echo "<script>alert('Successfully added a substitute teacher.');</script>";
             } 
             else 
             {
-                $updateResult = 'failure';
+                echo "<script>alert('Failed to add a substitute teacher.');</script>";
             }
         }
 
