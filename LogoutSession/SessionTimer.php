@@ -1,6 +1,6 @@
 <?php
 
-    /* This SessionTimer.php is for AdminLogout button to end the session 
+    /* This SessionTimer.php is for StaffLogout and ManagementLogout button to end the session 
         and set the expire cookies for each page*/
         
     // Start the session
@@ -23,6 +23,6 @@
     session_destroy();
 
     // Redirect to the login page
-    header("Location: ../MainPage/AdminLogin.php");
+    header("Location: ../MainPage/LoginPage.php");
     exit;
 ?>

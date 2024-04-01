@@ -1,3 +1,17 @@
+<?php
+  session_start();
+  if (!isset($_SESSION['email'])) 
+  {
+    header('Location: ..\MainPage\LoginPage.php');
+    exit;
+  }
+
+  if (isset($_SESSION['message'])) 
+  {
+      echo "<script>alert('{$_SESSION['message']}');</script>";
+      unset($_SESSION['message']);
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,7 +31,7 @@
     <header>
       <nav class="navbar navbar-expand-lg NavFont NavColor">
         <div class="container-fluid" id="navTheme">
-          <a href="MainPage\index.php" class="navbar-brand"><img src="SourceImg\SEMUJA.png" width="20%" height="20%"></a>
+          <a href="..\MainPage\index.php" class="navbar-brand"><img src="..\SourceImg\SEMUJA.png" width="20%" height="20%"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,10 +42,10 @@
                 <a class="nav-link active" aria-current="page" href="StaffDashboard.php"><i class="bi bi-house-door"></i> Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="AboutPage\About.php" target="_blank"><i class="bi bi-info-circle"></i> About</a>
+                <a class="nav-link" href="..\AboutPage\About.html" target="_blank"><i class="bi bi-info-circle"></i> About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="LogoutSession/StaffLogout.php"><i class="bi bi-box-arrow-right"></i> Sign Out</a>
+                <a class="nav-link" href="..\LogoutSession\SessionTimer.php"><i class="bi bi-box-arrow-right"></i> Sign Out</a>
               </li>
             </ul>
           </div>
@@ -340,7 +354,10 @@
                 </div>
               </div>
 
-              <?php include('DBStaff.php') ?>
+              <?php
+                include('DashboardConn.php');
+                $totalPages = DbStaff($conn);
+              ?>
               <thead align="center">
                 <th colspan="6" class="text-bg-dark">STAFF AND TEACHER ABSENCE LIST</th>
                 <tr>
@@ -368,7 +385,9 @@
           <!-- Pagination links -->
           <nav aria-label="Page navigation">
               <ul class="pagination justify-content-center">
-                  <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
+                  <?php 
+                  
+                  for ($i = 1; $i <= $totalPages; $i++) : ?>
                       <li class="page-item <?php echo $page == $i ? 'active' : ''; ?>">
                           <a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
                       </li>

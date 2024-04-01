@@ -1,5 +1,5 @@
 <?php
-include("DBConn.php");
+include('../DBConn.php');
 
 if(isset($_POST['accept'])) 
 {

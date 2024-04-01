@@ -1,5 +1,5 @@
 <?php
-    include('DBConn.php');
+    include('..\DBConn.php');
 
     /* Pagination for number of record on table */
     // Calculate total number of records
@@ -8,7 +8,7 @@
     $totalRecords = mysqli_fetch_assoc($countResult)['total'];
 
     // Calculate total number of pages
-    $recordsPerPage = 50;
+    $recordsPerPage = 10;
     $totalPages = ceil($totalRecords / $recordsPerPage);
 
     // Determine current page number
@@ -48,25 +48,6 @@
                 ?>
             </td>
             <td><?php echo $row['SubsTeacherName']; ?></td>
-            <td>
-                <form method="post">
-                    <input type="hidden" name="staff_id" value="<?php echo $row['StaffID']; ?>">
-                    <select class="form-select" aria-label="Default select example" name="substitute_teacher">
-                        <option selected align="center">Select Teacher</option>
-                        <hr class="dropdown-divider">
-                        <option value="RAZALI BIN YAHYA">RAZALI BIN YAHYA</option>
-                        <option value="FAEZAH BINTI DAUZ">FAEZAH BINTI DAUZ</option>
-                        <option value="ZAKI BIN MAHMOD">ZAKI BIN MAHMOD</option>
-                        <option value="ASYIKIN BINTI NORZULAN">ASYIKIN BINTI NORZULAN</option>
-                        <option value="AYUB BIN AHMAD">AYUB BIN AHMAD</option>
-                        <option value="ABU BIN ABDULLAH">ABU BIN ABDULLAH</option>
-                        <option value="SITI RAMLAH BINTI ABDUL RAHMAN">SITI RAMLAH BINTI ABDUL RAHMAN</option>
-                        <option value="KAMARUDDIN BIN ALI">KAMARUDDIN BIN ALI</option>
-                        <option value="NAWI BIN IMAN">NAWI BIN IMAN</option>
-                        <option value="HAFIZAH BINTI ZAKARIA">HAFIZAH BINTI ZAKARIA</option>
-                    </select>
-            </td>
-            <td><button type="submit" class="btn btn-success" name="submit">Add</button></td>
             </form>
         </tr>
         <?php

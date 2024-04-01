@@ -42,7 +42,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="index.php"><i class="bi bi-house-door"></i> Home</a>
                         <li class="nav-item">
-                            <a class="nav-link" href="../AboutPage/About.php"><i class="bi bi-info-circle"></i> About</a>
+                            <a class="nav-link" href="../AboutPage/About.html"><i class="bi bi-info-circle"></i> About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="tyy.php"><i class="bi bi-question-circle"></i> Help</a>
@@ -86,7 +86,7 @@
 
                     <div class="Btn-container">
                         <!-- Button 1 -->
-                        <a href="StaffLogin.php" class="button">
+                        <a href="LoginPage.php" class="button">
                             <div class="button__content">
                                 <span class="button__text">Staff Dashboard</span>
                                 <i class="ri-download-cloud-fill button__icon"></i>
@@ -106,7 +106,7 @@
                         </a>
 
                         <!-- Button 2 -->
-                        <a href="ManagementLogin.php" class="button">
+                        <a href="LoginPage.php" class="button">
                             <div class="button__content">
                                 <span class="button__text">Management Dashboard</span>
                                 <i class="ri-download-cloud-fill button__icon"></i>

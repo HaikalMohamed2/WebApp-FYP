@@ -23,13 +23,24 @@
                 {
                     if ($user_data['status'] == 'accepted') 
                     {
-                        // Check if the user is allowed to login based on their role
-                        if ($user_data['role'] == 'Both' || $user_data['role'] == 'Staff') 
+                        if ($user_data['role'] == 'Staff') 
                         {
-                            // Redirect to the Staff dashboard
-                            header("Location: ../StaffDashboard.php");
-                            die;
-                        } 
+                            // Set the session variable
+                            $_SESSION['email'] = $email;
+                            
+                            $_SESSION['message'] = 'Login successful.';
+                            header("Location: ..\Dashboard\StaffDashboard.php");
+                            exit;
+                        }
+                        elseif ($user_data['role'] == 'Management') 
+                        {
+                            // Set the session variable
+                            $_SESSION['email'] = $email;
+
+                            $_SESSION['message'] = 'Login successful.';
+                            header("Location: ..\Dashboard\ManagementDashboard.php");
+                            exit;
+                        }
                         else 
                         {
                             // Role not set or invalid, display error message
@@ -76,12 +87,13 @@
     <title>Login</title>
     <!-- Bootstrap for CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="login">
-    <a href="../MainPage/index.php" class="btn btn-info">Homepage</a>
-
+    <a href="../MainPage/index.php" class="btn btn-info"><i class="bi bi-house-door"></i> Homepage</a>
+    
     <h1>Login</h1>
     <p>Welcome To SSAMS</p>
     <div class="logo">

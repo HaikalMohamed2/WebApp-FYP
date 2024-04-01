@@ -1,5 +1,5 @@
 <?php
-    include('DBConn.php');
+    include('..\DBConn.php');
 
     if (!$conn) 
     {
@@ -17,7 +17,7 @@
         $totalRecords = mysqli_fetch_assoc($countResult)['total'];
 
         // Calculate total number of pages
-        $recordsPerPage = 50;
+        $recordsPerPage = 10;
         $totalPages = ceil($totalRecords / $recordsPerPage);
 
         // Determine current page number

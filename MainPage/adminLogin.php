@@ -1,24 +1,55 @@
 <?php
-session_start();
+    session_start();
+    include('../DBConn.php');
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") 
-{
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    if ($_SERVER['REQUEST_METHOD'] == "POST") 
+    {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-    // Check if the entered credentials are for the admin
-    if ($email == "admin123@gmail.com" && $password == "admin123") 
-    {
-        // Redirect to the admin page
-        header("location: ../AdminDashboard.php");
-        die;
-    } 
-    else 
-    {
-        echo "<script type='text/javascript'> alert('Wrong email or password')</script>";
+        // Check if the entered credentials are for the admin
+        if (!empty($email) && !empty($password) && !is_numeric($email)) 
+        {
+            $query = "SELECT * FROM adminaccount WHERE AdminEmail = ? LIMIT 1";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result && $result->num_rows > 0) 
+                {
+                    $user_data = $result->fetch_assoc();
+
+                    if ($user_data['AdminPass'] == $password) 
+                    {
+                        // Set the session variable
+                        $_SESSION['Email'] = $email;
+
+                        // Successful login, store success message in session
+                        $_SESSION['message'] = 'Login successful.';
+                        header('location: ..\Dashboard\AdminDashboard.php');
+                        exit;
+                    } 
+                    else 
+                    {
+                        // Incorrect password, store error message in session
+                        $_SESSION['message'] = 'Wrong email or password.';
+                    }
+                } 
+                else 
+                {
+                    // User not found, store error message in session
+                    $_SESSION['message'] = 'Wrong email or password.';
+                }
+        } 
+        else 
+        {
+            // Invalid input, store error message in session
+            $_SESSION['message'] = 'Wrong email or password.';
+        }
     }
-}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -43,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
         <input type="email" name="email" required>
         <label>Password</label>
         <input type="password" name="password" required>
-        <input type="submit" value="Submit">
+        <input type="submit" value="LOGIN">
     </form>
 </div>
 </body>
