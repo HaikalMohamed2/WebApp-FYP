@@ -6,6 +6,8 @@
     {
         $email = $_POST['email'];
         $password = $_POST['password'];
+        $res = $conn->query("SELECT AdminPass FROM adminaccount WHERE AdminEmail = '$email'");
+        $HashPass = $res->fetch_assoc()['AdminPass'];
 
         // Check if the entered credentials are for the admin
         if (!empty($email) && !empty($password) && !is_numeric($email)) 
@@ -20,7 +22,7 @@
                 {
                     $user_data = $result->fetch_assoc();
 
-                    if ($user_data['AdminPass'] == $password) 
+                    if (password_verify($password, $HashPass)) 
                     {
                         // Set the session variable
                         $_SESSION['Email'] = $email;
@@ -32,20 +34,20 @@
                     } 
                     else 
                     {
-                        // Incorrect password, store error message in session
-                        $_SESSION['message'] = 'Wrong email or password.';
+                        // Incorrect password, display error message
+                    echo "<script>alert('Wrong email or password.');</script>";
                     }
                 } 
                 else 
                 {
-                    // User not found, store error message in session
-                    $_SESSION['message'] = 'Wrong email or password.';
+                    // Incorrect password, display error message
+                    echo "<script>alert('Wrong email or password.');</script>";
                 }
         } 
         else 
         {
-            // Invalid input, store error message in session
-            $_SESSION['message'] = 'Wrong email or password.';
+            // Incorrect password, display error message
+            echo "<script>alert('Wrong email or password.');</script>";
         }
     }
 ?>
@@ -65,7 +67,7 @@
 <div class="login">
 <a href="../MainPage/index.php" class="btn btn-info">Homepage</a>
     <h1>Admin Login</h1>
-    <p>Welcome To SSAMS</p>
+    <p>Welcome To SAMS</p>
     <div class="logo">
         <img src="../SourceImg/SEMUJA.png" alt="SSAMS">
     </div>

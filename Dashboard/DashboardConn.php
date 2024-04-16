@@ -1,5 +1,11 @@
 <?php
     include('../DBConn.php');
+
+    /* To improve future source code maintenance, the functions of DbStaff($conn), DbMgmt($conn), 
+    DbAdminSA($conn), and DbAdminAA($conn) involve performing database SQL connections to retrieve data 
+    from databases on each dashboard and minimizing multiple files for each dashboard that have source code to retrieve the data.*/
+
+
     function DbStaff($conn)
     {
         /* Pagination for number of record on table */
@@ -255,9 +261,6 @@
         } 
         else 
         {
-            // Check if the user is logged in as an admin
-            // You should implement proper authentication and authorization mechanisms
-
             /* Pagination for number of record on table */
             // Calculate total number of records
             $countQuery = "SELECT COUNT(*) AS total FROM `staffaccount` WHERE status = 'pending' OR status = 'accepted' OR status = 'declined'";
@@ -271,8 +274,6 @@
             // Determine current page number
             $page = isset($_GET['page']) ? $_GET['page'] : 1;
             $offset = ($page - 1) * $recordsPerPage;
-
-            $updateResult = '';
 
             // Select all pending and accepted/declined data from DB and display on table
             $query = "SELECT * FROM `staffaccount` WHERE status = 'pending' OR status = 'accepted' OR status = 'declined' ORDER BY staff_id DESC LIMIT ? OFFSET ?";
@@ -291,7 +292,38 @@
                     <td scope="row" align="center"><?php echo $rowNumber; ?></td> <!-- Display the row number -->
                     <td align="center"><?php echo $row['staff_id']; ?></td>
                     <td><?php echo $row['username']; ?></td>
-                    <td><?php echo $row['password']; ?></td>
+
+                    <td>
+                        <input type="password" value="<?php echo $row['password']; ?>" id="password<?php echo $rowNumber; ?>" readonly>
+                        <button id="togglePassword<?php echo $rowNumber; ?>" style="background: none; border: none;">
+                            <i class="bi bi-eye-slash"></i>
+                        </button>
+                    </td>
+                    <!-- This JS code is used to toggle the visibility of a password field in a form.  -->
+                    <script>
+                        const togglePassword<?php echo $rowNumber; ?> = document.querySelector('#togglePassword<?php echo $rowNumber; ?>');
+                        const password<?php echo $rowNumber; ?> = document.querySelector('#password<?php echo $rowNumber; ?>');
+                        const eyeIcon<?php echo $rowNumber; ?> = togglePassword<?php echo $rowNumber; ?>.querySelector('i');
+
+                        togglePassword<?php echo $rowNumber; ?>.addEventListener('click', function (e) 
+                        {
+                            e.preventDefault();
+                            // toggle the password visibility
+                            if (password<?php echo $rowNumber; ?>.type === 'password') 
+                            {
+                                password<?php echo $rowNumber; ?>.type = 'text';
+                                eyeIcon<?php echo $rowNumber; ?>.classList.remove('bi-eye-slash');
+                                eyeIcon<?php echo $rowNumber; ?>.classList.add('bi-eye');
+                            } 
+                            else 
+                            {
+                                password<?php echo $rowNumber; ?>.type = 'password';
+                                eyeIcon<?php echo $rowNumber; ?>.classList.remove('bi-eye');
+                                eyeIcon<?php echo $rowNumber; ?>.classList.add('bi-eye-slash');
+                            }
+                        });
+                    </script>
+                    
                     <td><?php echo $row['email']; ?></td>
                     <td><?php echo $row['status']; ?></td> <!-- Display the status -->
                     <td><?php echo $row['role']; ?></td>
@@ -374,9 +406,12 @@
                 $Password = $_POST['StaffPassName'];
                 $Email = $_POST['StaffEmail'];
 
+                // Set password encryption
+                $PassEnc = password_hash($Password, PASSWORD_DEFAULT);
+
                 // Use prepared statement to avoid SQL injection
                 $InsertQuery = $conn->prepare("INSERT INTO `staffaccount` (staff_id, username, password, email) VALUES (?, ?, ?, ?)");
-                $InsertQuery->bind_param("ssss", $StaffID, $Username, $Password, $Email);
+                $InsertQuery->bind_param("ssss", $StaffID, $Username, $PassEnc, $Email);
                 $InsertQuery->execute();
                 echo "<script>alert('Succesfully added an staff account.');</script>";
 
@@ -399,10 +434,13 @@
                 $Username = $_POST['StaffUname'];
                 $Password = $_POST['StaffPassName'];
                 $Email = $_POST['StaffEmail'];
+                
+                // Set password encryption
+                $PassEnc = password_hash($Password, PASSWORD_DEFAULT);
 
                 // Use prepared statement to avoid SQL injection
                 $UpdateQuery = $conn->prepare("UPDATE `staffaccount` SET username=?, password=?, email=? WHERE staff_id=?");
-                $UpdateQuery->bind_param("ssss", $Username, $Password, $Email, $StaffID);
+                $UpdateQuery->bind_param("ssss", $Username, $PassEnc, $Email, $StaffID);
                 $UpdateQuery->execute();
                 echo "<script>alert('Succesfully update an staff account.');</script>";
 
@@ -444,7 +482,7 @@
         }
         return $totalPages;
     }
-
+    
     function DbAdminAA($conn)
     {
         if (!$conn) 
@@ -480,15 +518,51 @@
             while ($row = mysqli_fetch_assoc($result)) 
             {
                 ?>
-                <tr>
-                    <td scope="row" align="center"><?php echo $rowNumber; ?></td> <!-- Display the row number -->
-                    <td align="center"><?php echo $row['AdminID']; ?></td>
-                    <td><?php echo $row['AdminEmail']; ?></td>
-                    <td><?php echo $row['AdminPass']; ?></td>
-                </tr>
+                    <tr>
+                        <td scope="row" align="center"><?php echo $rowNumber; ?></td> <!-- Display the row number -->
+                        <td align="center"><?php echo $row['AdminID']; ?></td>
+                        <td><?php echo $row['AdminEmail']; ?></td>
+            
+                        <td>
+                            <input type="password" value="<?php echo $row['AdminPass']; ?>" class="password" id="password<?php echo $rowNumber; ?>" readonly>
+                            <button class="togglePassword" style="background: none; border: none;">
+                                <i class="bi bi-eye-slash"></i>
+                            </button>
+                        </td>
+
+                        <!-- This JS code is used to toggle the visibility of a password field in a form.  -->
+                        <script>
+                            window.onload = function() {
+                                const togglePasswords = document.querySelectorAll('.togglePassword');
+                                const passwords = document.querySelectorAll('.password');
+
+                                togglePasswords.forEach((togglePassword, index) => {
+                                    const password = passwords[index];
+                                    const eyeIcon = togglePassword.querySelector('i');
+
+                                    togglePassword.addEventListener('click', function (e) {
+                                        e.preventDefault();
+                                        // toggle the password visibility
+                                        if (password.type === 'password') {
+                                            password.type = 'text';
+                                            eyeIcon.classList.remove('bi-eye-slash');
+                                            eyeIcon.classList.add('bi-eye');
+                                        } else {
+                                            password.type = 'password';
+                                            eyeIcon.classList.remove('bi-eye');
+                                            eyeIcon.classList.add('bi-eye-slash');
+                                        }
+                                    });
+                                });
+                            }
+                        </script>
+                    </tr>
                 <?php
                 $rowNumber++; // Increment the row number
             }
+            ?>
+
+            <?php
 
             // Insert data into DB and show in table
             if (isset($_POST['AddAdmin'])) 
@@ -497,9 +571,12 @@
                 $AdminEmail = $_POST['AdminEmail'];
                 $AdminPass = $_POST['AdminPassword'];
 
+                // Set password encryption
+                $PassEnc = password_hash($AdminPass, PASSWORD_DEFAULT);
+
                 // Use prepared statement to avoid SQL injection
                 $InsertQuery = $conn->prepare("INSERT INTO `adminaccount` (AdminID, AdminEmail, AdminPass) VALUES (?, ?, ?)");
-                $InsertQuery->bind_param("sss", $AdminID, $AdminEmail, $AdminPass);
+                $InsertQuery->bind_param("sss", $AdminID, $AdminEmail, $PassEnc);
                 $InsertQuery->execute();
                 echo "<script>alert('Succesfully added an admin account.');</script>";
 
@@ -522,9 +599,12 @@
                 $AdminEmail = $_POST['AdminEmail'];
                 $AdminPass = $_POST['AdminPassword'];
 
+                // Set password encryption
+                $PassEnc = password_hash($AdminPass, PASSWORD_DEFAULT);
+
                 // Use prepared statement to avoid SQL injection
                 $UpdateQuery = $conn->prepare("UPDATE `adminaccount` SET AdminEmail=?, AdminPass=? WHERE AdminID=?");
-                $UpdateQuery->bind_param("sss", $AdminEmail, $AdminPass, $AdminID);
+                $UpdateQuery->bind_param("sss", $AdminEmail, $PassEnc, $AdminID);
                 $UpdateQuery->execute();
                 echo "<script>alert('Succesfully update an admin account.');</script>";
 
@@ -566,12 +646,4 @@
         }
         return $totalPages1;
     }
-
-
-    function GenerateDB()
-    {
-        
-    }
-
-    
 ?>

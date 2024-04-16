@@ -106,44 +106,40 @@
                           <div class="select-wrapper">
                             <select class="form-select custom-select" size="5" name="Class">
                               <option>Select Class</option>
-                              <hr class="dropdown-divider">
+                              <hr class="b-example-divider">
                               <optgroup label="Form 1" align="center"></optgroup>
                               <option>1 Amanah</option>]
                               <option>1 Bestari</option>
                               <option>1 Cekal</option>
                               <option>1 Dedikasi</option>
                               <option>1 Empati</option>
-                              <hr class="dropdown-divider">
+                              <hr class="b-example-divider">
 
                               <optgroup label="Form 2" align="center"></optgroup>
-                              <hr class="dropdown-divider">
                               <option>2 Amanah</option>]
                               <option>2 Bestari</option>
                               <option>2 Cekal</option>
                               <option>2 Dedikasi</option>
                               <option>2 Empati</option>
-                              <hr class="dropdown-divider">
+                              <hr class="b-example-divider">
 
                               <optgroup label="Form 3" align="center"></optgroup>
-                              <hr class="dropdown-divider">
                               <option>3 Amanah</option>]
                               <option>3 Bestari</option>
                               <option>3 Cekal</option>
                               <option>3 Dedikasi</option>
                               <option>3 Empati</option>
-                              <hr class="dropdown-divider">
+                              <hr class="b-example-divider">
 
                               <optgroup label="Form 4" align="center"></optgroup>
-                              <hr class="dropdown-divider">
                               <option>4 Amanah</option>]
                               <option>4 Bestari</option>
                               <option>4 Cekal</option>
                               <option>4 Dedikasi</option>
                               <option>4 Empati</option>
-                              <hr class="dropdown-divider">
+                              <hr class="b-example-divider">
 
                               <optgroup label="Form 5" align="center"></optgroup>
-                              <hr class="dropdown-divider">
                               <option>5 Amanah</option>]
                               <option>5 Bestari</option>
                               <option>5 Cekal</option>
@@ -184,12 +180,6 @@
                           <label class="form-label">Other Reason</label>
                           <textarea class="form-control" id="otherReasonAdd" rows="3" name="OtherReason"></textarea>
                         </div>
-
-                        <!-- Upload PDF File -->
-                        <!-- <div class="mb-3">
-                          <label class="form-label">Upload Leave Letter</label>
-                          <input class="form-control" type="file" name="LeaveLetterFile">
-                        </div> -->
 
                         <div class="modal-footer">
                           <button type="reset" class="btn btn-secondary" data-bs-dismiss="">Clear</button>
@@ -238,44 +228,40 @@
                           <div class="select-wrapper">
                             <select class="form-select custom-select" size="5" name="Class">
                               <option>Select Class</option>
-                              <hr class="dropdown-divider">
+                              <hr class="b-example-divider">
                               <optgroup label="Form 1" align="center"></optgroup>
                               <option>1 Amanah</option>]
                               <option>1 Bestari</option>
                               <option>1 Cekal</option>
                               <option>1 Dedikasi</option>
                               <option>1 Empati</option>
-                              <hr class="dropdown-divider">
+                              <hr class="b-example-divider">
 
                               <optgroup label="Form 2" align="center"></optgroup>
-                              <hr class="dropdown-divider">
                               <option>2 Amanah</option>]
                               <option>2 Bestari</option>
                               <option>2 Cekal</option>
                               <option>2 Dedikasi</option>
                               <option>2 Empati</option>
-                              <hr class="dropdown-divider">
+                              <hr class="b-example-divider">
 
                               <optgroup label="Form 3" align="center"></optgroup>
-                              <hr class="dropdown-divider">
                               <option>3 Amanah</option>]
                               <option>3 Bestari</option>
                               <option>3 Cekal</option>
                               <option>3 Dedikasi</option>
                               <option>3 Empati</option>
-                              <hr class="dropdown-divider">
+                              <hr class="b-example-divider">
 
                               <optgroup label="Form 4" align="center"></optgroup>
-                              <hr class="dropdown-divider">
                               <option>4 Amanah</option>]
                               <option>4 Bestari</option>
                               <option>4 Cekal</option>
                               <option>4 Dedikasi</option>
                               <option>4 Empati</option>
-                              <hr class="dropdown-divider">
+                              <hr class="b-example-divider">
 
                               <optgroup label="Form 5" align="center"></optgroup>
-                              <hr class="dropdown-divider">
                               <option>5 Amanah</option>]
                               <option>5 Bestari</option>
                               <option>5 Cekal</option>

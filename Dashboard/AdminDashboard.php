@@ -410,7 +410,7 @@
                               </tr>
                               </thead>
                               <tbody>
-                              <!-- This is where the PHP code from DBAdmin.php will be included -->
+                              <!-- This is where the PHP code from DBAdmin will be included -->
                               </tbody>
                         </table>
                       </div>

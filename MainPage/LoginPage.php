@@ -6,6 +6,8 @@
     {
         $email = $_POST['email'];
         $password = $_POST['password'];
+        $res = $conn->query("SELECT password FROM staffaccount WHERE email = '$email'");
+        $HashPass = $res->fetch_assoc()['password'];
 
         if (!empty($email) && !empty($password) && !is_numeric($email)) 
         {
@@ -18,8 +20,8 @@
             if ($result && $result->num_rows > 0) 
             {
                 $user_data = $result->fetch_assoc();
-
-                if ($user_data['password'] == $password) 
+                // $FetchPassEnc = $conn->query("SELECT password FROM staffaccount where email = '$email'");
+                if (password_verify($password, $HashPass)) 
                 {
                     if ($user_data['status'] == 'accepted') 
                     {
@@ -95,7 +97,7 @@
     <a href="../MainPage/index.php" class="btn btn-info"><i class="bi bi-house-door"></i> Homepage</a>
     
     <h1>Login</h1>
-    <p>Welcome To SSAMS</p>
+    <p>Welcome To SAMS</p>
     <div class="logo">
         <img src="../SourceImg/SEMUJA.png" alt="SSAMS">
     </div>
@@ -104,7 +106,7 @@
         <input type="email" name="email" required>
         <label>Password</label>
         <input type="password" name="password" required>
-        <input type="submit" name="" value="Submit">
+        <input type="submit" name="" value="LOGIN">
     </form>
     <p>Don't have an account yet? <a href="signup.php">Sign Up here</a></p>
 </div>

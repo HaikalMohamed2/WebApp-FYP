@@ -45,7 +45,7 @@
                             <a class="nav-link" href="../AboutPage/About.html"><i class="bi bi-info-circle"></i> About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="tyy.php"><i class="bi bi-question-circle"></i> Help</a>
+                            <a class="nav-link" href="TestPDF.pdf" download onclick="return confirmDownload()"><i class="bi bi-question-circle"></i> Help</a>
                         </li>
                     </ul>
                 </div>
@@ -148,5 +148,11 @@
             </div>
         </div>
     </div>
+    <script>
+        function confirmDownload() 
+        {
+            return confirm("Would you like to download the user manual for the SAMS system?");
+        }
+    </script>
 </body>
 </html>

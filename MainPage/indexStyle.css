@@ -8,37 +8,37 @@
     flex-direction: column;
     gap: 5px;
   }
-    /* Set width and height for carousel images */
-      .carousel-item img 
-      {
-        background-position: center;
-        width: 350px;
-        height: 300px;
-        object-fit: contain;
-      }
+  /* Set width and height for carousel images */
+  .carousel-item img 
+  {
+    background-position: center;
+    width: 350px;
+    height: 300px;
+    object-fit: contain;
+  }
 
-      .carousel-control-prev 
-      {
-        background-color: orange;
-        width: 20px;
-        height: 40px;
-        top: 50%;
-        opacity: 1;
-        left: 10px;
-      }
+  .carousel-control-prev 
+  {
+    background-color: orange;
+    width: 20px;
+    height: 40px;
+    top: 50%;
+    opacity: 1;
+    left: 10px;
+  }
 
-      .carousel-control-next 
-      {
-        background-color: orange;
-        width: 20px;
-        height: 40px;
-        top: 50%;
-        opacity: 1;
-        right: 10px;
-      }
+  .carousel-control-next 
+  {
+    background-color: orange;
+    width: 20px;
+    height: 40px;
+    top: 50%;
+    opacity: 1;
+    right: 10px;
+  }
 }
 
-@media (min-width: 768px) 
+@media (min-width: 768px) and (max-width: 992px)
 {
   /* Medium devices (tablets) */
   .Btn-container 
@@ -46,37 +46,42 @@
     flex-direction: row;
     justify-content: center;
   }
-    /* Set width and height for carousel images */
-    .carousel-item img 
-    {
-      width: 350px;
-      height: 300px;
-      object-fit: contain;
-    }
+  /* Set width and height for carousel images */
+  .carousel-item img 
+  {
+    width: 425px;
+    height: 300px;
+    object-fit: contain;
+  }
 
-    .carousel-control-prev 
-    {
-      background-color: orange;
-      width: 40px;
-      height: 40px;
-      top: 50%;
-      opacity: 1;
-      left: 70px;
-    }
+  .carousel-control-prev 
+  {
+    background-color: orange;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    opacity: 1;
+    left: 70px;
+  }
 
-    .carousel-control-next 
-    {
-      background-color: orange;
-      width: 40px;
-      height: 40px;
-      top: 50%;
-      opacity: 1;
-      right: 70px;
-    }
+  .carousel-control-next 
+  {
+    background-color: orange;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    opacity: 1;
+    right: 70px;
+  }
 }
 
-@media (max-width: 992px)
+@media (min-width: 992px) and (max-width: 1200px)
 {
+  .Btn-container 
+  {
+    gap: -100%;
+    justify-content: center;
+  }
   /* Set width and height for carousel images */
   .carousel-item img 
   {
@@ -111,6 +116,7 @@
   .Btn-container 
   {
     gap: -100%;
+    justify-content: center;
   }
   /* Set width and height for carousel images */
   .carousel-item img 
@@ -140,6 +146,15 @@
     right: 200px;
   }
 }
+@media (min-width: 1200px) and (max-width: 1400px) 
+{
+  .Btn-container 
+  {
+    display: flex;
+    justify-content: center;
+  }
+}
+
 
 /* Nav Bar */
 .NavSet 
@@ -153,6 +168,7 @@
 
 .navbar-toggler 
 {
+  background-color: rgba(255, 255, 255, 0.74);
   margin-left: 10px;
 }
 

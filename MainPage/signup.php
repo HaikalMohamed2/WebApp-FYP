@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <label>Password</label>
         <input type="password" name="password" required>
 
-        <input type="submit" name="" value="Submit" >
+        <input type="submit" name="" value="SIGN UP" >
     </form>
     <p>Already have an account? <a href="LoginPage.php">Login Here</a></p>
 </div>
