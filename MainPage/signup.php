@@ -3,24 +3,31 @@ session_start();
 
 include("../DBConn.php");
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $staff_id = $_POST['staff_id'];
-    $username = $_POST['username'];
+if ($_SERVER['REQUEST_METHOD'] == "POST") 
+{
+    $Name = $_POST['Name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    if (!empty($email) && !empty($password) && !is_numeric($email)) {
+    if (!empty($email) && !empty($password) && !is_numeric($email)) 
+    {
+        // Hash the password before storing it into the database
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
         $status = 'pending'; // Initial status is 'pending'
-        $query = "INSERT INTO staffaccount (staff_id, username, email, password, status) 
-                  VALUES ('$staff_id', '$username', '$email', '$password', '$status')";
+        $query = "INSERT INTO staffaccount (StaffName, email, password, status) 
+                  VALUES ('$Name', '$email', '$hashed_password', '$status')";
         mysqli_query($conn, $query);
 
         echo "<script type='text/javascript'> alert('Registration successful. Please wait for admin approval.')</script>";
-    } else {
+    } 
+    else 
+    {
         echo "<script type='text/javascript'> alert('Please Enter Some Valid Information')</script>";
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -38,11 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <img src="../SourceImg/SEMUJA.png" alt="SSAMS">
     </div>
     <form method="POST">
-        <label>Staff ID</label>
-        <input type="text" name="staff_id" required>
-
-        <label>Username</label>
-        <input type="text" name="username" required>
+        <label>Name</label>
+        <input type="text" name="Name" required>
 
         <label>Email</label>
         <input type="email" name="email" required>

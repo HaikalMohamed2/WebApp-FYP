@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAMS MAIN PAGE</title>
+    <title>SSAMS MAIN PAGE</title>
     <!-- Bootstrap for CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
@@ -28,7 +28,7 @@
                 
                 <!-- Add some work in between NavToggler and Logo -->
                 <div class="d-flex align-items-center mx-auto d-lg-none">
-                    <span class="mx-auto">SAMS HOMEPAGE</span>
+                    <span class="mx-auto">SSAMS HOMEPAGE</span>
                 </div>
 
                 <!-- SEMUJA Logo -->
@@ -45,7 +45,7 @@
                             <a class="nav-link" href="../AboutPage/About.html"><i class="bi bi-info-circle"></i> About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="TestPDF.pdf" download onclick="return confirmDownload()"><i class="bi bi-question-circle"></i> Help</a>
+                            <a class="nav-link" href="SSAMS_USER_GUIDELINES.pdf" download onclick="return confirmDownload()"><i class="bi bi-question-circle"></i> Help</a>
                         </li>
                     </ul>
                 </div>
@@ -56,7 +56,7 @@
     <!-- Page Content -->
     <div class="container ContentColor">
         <br>
-        <h3 class="MainTitle">Welcome To SAMS Main Page</h3>
+        <h3 class="MainTitle">Welcome To SSAMS Main Page</h3>
         <div class="row">
             <div class="col">
                 <br>

@@ -67,7 +67,7 @@
 <div class="login">
 <a href="../MainPage/index.php" class="btn btn-info">Homepage</a>
     <h1>Admin Login</h1>
-    <p>Welcome To SAMS</p>
+    <p>Welcome To SSAMS</p>
     <div class="logo">
         <img src="../SourceImg/SEMUJA.png" alt="SSAMS">
     </div>

@@ -43,6 +43,15 @@
                             header("Location: ..\Dashboard\ManagementDashboard.php");
                             exit;
                         }
+                        elseif ($user_data['role'] == '') 
+                        {
+                            // Set the session variable
+                            $_SESSION['email'] = $email;
+
+                            $_SESSION['message'] = 'Login successful.';
+                            header("Location: ..\Dashboard\ManagementDashboard.php");
+                            exit;
+                        }
                         else 
                         {
                             // Role not set or invalid, display error message
@@ -80,7 +89,6 @@
     }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -97,7 +105,7 @@
     <a href="../MainPage/index.php" class="btn btn-info"><i class="bi bi-house-door"></i> Homepage</a>
     
     <h1>Login</h1>
-    <p>Welcome To SAMS</p>
+    <p>Welcome To SSAMS</p>
     <div class="logo">
         <img src="../SourceImg/SEMUJA.png" alt="SSAMS">
     </div>

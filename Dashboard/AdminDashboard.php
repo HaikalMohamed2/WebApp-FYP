@@ -100,13 +100,8 @@
                                   <form method="post">
                                     <!-- TextBox -->
                                     <div class="mb-3">
-                                      <label for="Name" class="form-label">Staff ID</label>
-                                      <input type="text" class="form-control" name="StaffID" required>
-                                    </div>
-
-                                    <div class="mb-3">
-                                      <label for="Name" class="form-label">Username</label>
-                                      <input type="text" class="form-control" name="StaffUname" required>
+                                      <label for="Name" class="form-label">Staff Name</label>
+                                      <input type="text" class="form-control" name="StaffName" required>
                                     </div>
 
                                     <div class="mb-3">
@@ -143,8 +138,8 @@
                                   <form method="post">
                                     <!-- TextBox -->
                                     <div class="mb-3">
-                                      <label for="Name" class="form-label">Staff ID</label>
-                                      <input type="text" class="form-control" name="StaffID" required>
+                                      <label for="Name" class="form-label">Staff Name</label>
+                                      <input type="text" class="form-control" name="Staff_Name" required>
                                     </div>
 
                                     <center>
@@ -152,11 +147,6 @@
                                       <h3>Update</h3>
                                     </center>
                                     <hr class="b-example-divider">
-
-                                    <div class="mb-3">
-                                      <label for="Name" class="form-label">Username</label>
-                                      <input type="text" class="form-control" name="StaffUname" required>
-                                    </div>
 
                                     <div class="mb-3">
                                       <label for="Name" class="form-label">Password</label>
@@ -192,8 +182,8 @@
                                   <form method="post">
                                     <!-- TextBox -->
                                     <div class="mb-3">
-                                      <label for="StaffID" class="form-label">Staff ID</label>
-                                      <input type="text" class="form-control" name="StaffID" required>
+                                      <label for="StaffID" class="form-label">Staff Name</label>
+                                      <input type="text" class="form-control" name="StaffName" required>
                                     </div>
 
                                     <div class="mb-3">
@@ -220,8 +210,7 @@
                               <th colspan="9" class="text-bg-dark">LIST OF STAFF ACCOUNTS</th>
                               <tr>
                                   <th scope="col">Number</th>
-                                  <th scope="col">Staff ID</th>
-                                  <th scope="col">Username</th>
+                                  <th scope="col">Staff Name</th>
                                   <th scope="col">Password</th>
                                   <th scope="col">Email</th>
                                   <th scope="col">Status</th>
@@ -402,7 +391,7 @@
                               <th colspan="9" class="text-bg-dark">LIST OF ADMINISTRATOR ACCOUNTS</th>
                               <tr>
                                 <th>Number</th>
-                                  <th scope="col">AdminID</th>
+                                  <th scope="col">Admin ID</th>
                                   <th scope="col">Admin Email</th>
                                   <th scope="col">Admin Password</th>
                               </tr>

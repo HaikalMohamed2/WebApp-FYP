@@ -5,7 +5,6 @@
     DbAdminSA($conn), and DbAdminAA($conn) involve performing database SQL connections to retrieve data 
     from databases on each dashboard and minimizing multiple files for each dashboard that have source code to retrieve the data.*/
 
-
     function DbStaff($conn)
     {
         /* Pagination for number of record on table */
@@ -45,44 +44,55 @@
             while ($row = mysqli_fetch_assoc($result)) 
             {
                 ?>
-                <tr>
-                    <td align="center"><?php echo $row['StaffID']; ?></td>
-                    <td><?php echo $row['StaffName']; ?></td>
-                    <td><?php echo $row['Class']; ?></td>
-                    <td><?php echo $row['Date']; ?></td>
-                    <td>
-                        <?php
-                        if ($row['ReasonAbsence'] == 'Other' && isset($row['OtherReason'])) 
-                        {
-                            echo $row['OtherReason'];
-                        } 
-                        else 
-                        {
-                            echo $row['ReasonAbsence'];
-                        }
-                        ?>
-                    </td>
-                    <td><?php echo $row['SubsTeacherName']; ?></td>
-                </tr>
+                    <tr align="center">
+                        <td><?php echo $row['StaffName']; ?></td>
+                        <td><?php echo $row['Class']; ?></td>
+                        <td><?php echo $row['Date']; ?></td>
+                        <td>
+                            <?php
+                            if ($row['ReasonAbsence'] == 'Other' && isset($row['OtherReason'])) 
+                            {
+                                echo $row['OtherReason'];
+                            } 
+                            else 
+                            {
+                                echo $row['ReasonAbsence'];
+                            }
+                            ?>
+                        </td>
+                        <td><?php echo $row['DateReplacementClass']; ?></td>
+                    </tr>
                 <?php
             }
 
             // Insert data into DB and show in table
             if (isset($_POST['Add'])) 
             {
-                $StaffID = $_POST['StaffID'];
                 $StaffName = $_POST['StaffName'];
-                $Class = $_POST['Class'];
                 $Date = $_POST['Date'];
+                $DateReplace = $_POST['DateReplacement'];
                 $R_Absence = $_POST['R-Absence'];
                 $OtherReason = $_POST['OtherReason']; // Get the Other reason text
 
                 // Check if the reason is "Other" and set the reason text accordingly
                 $ReasonAbsence = ($R_Absence == 'Other') ? $OtherReason : $R_Absence;
 
+                // Gather all the checked classes into an array
+                $classes = [];
+                if (isset($_POST['Class']) && is_array($_POST['Class'])) 
+                {
+                    foreach ($_POST['Class'] as $class) 
+                    {
+                        $classes[] = $class;
+                    }
+                }
+
+                // Convert the classes array into a string
+                $Class = implode(',', $classes);
+
                 // Use prepared statement to avoid SQL injection
-                $InsertQuery = $conn->prepare("INSERT INTO `staffattendance` (StaffID, StaffName, Class, Date, ReasonAbsence) VALUES (?, ?, ?, ?, ?)");
-                $InsertQuery->bind_param("sssss", $StaffID, $StaffName, $Class, $Date, $ReasonAbsence);
+                $InsertQuery = $conn->prepare("INSERT INTO `staffattendance` (StaffName, Class, Date, DateReplacementClass, ReasonAbsence) VALUES (?, ?, ?, ?, ?)");
+                $InsertQuery->bind_param("sssss", $StaffName, $Class, $Date, $DateReplace, $ReasonAbsence);
                 $InsertQuery->execute();
 
                 // Auto Refresh Webpage when delete button is clicked
@@ -100,18 +110,31 @@
             // Update data from DB and show in table
             if (isset($_POST['Update'])) 
             {
-                $StaffID = $_POST['StaffID'];
+                $StaffName = $_POST['StaffName'];
                 $Date = $_POST['Date'];
-                $Class = $_POST['Class'];
+                $DateReplace = $_POST['DateReplacement'];
                 $R_Absence = $_POST['R-Absence'];
                 $OtherReason = $_POST['OtherReason']; // Get the Other reason text
 
                 // Check if the reason is "Other" and set the reason text accordingly
                 $ReasonAbsence = ($R_Absence == 'Other') ? $OtherReason : $R_Absence;
 
+                // Gather all the checked classes into an array
+                $classes = [];
+                if (isset($_POST['Class']) && is_array($_POST['Class'])) 
+                {
+                    foreach ($_POST['Class'] as $class) 
+                    {
+                        $classes[] = $class;
+                    }
+                }
+
+                // Convert the classes array into a string
+                $Class = implode(',', $classes);
+
                 // Use prepared statement to avoid SQL injection
-                $UpdateQuery = $conn->prepare("UPDATE `staffattendance` SET Class=?, ReasonAbsence=? WHERE StaffID=? AND Date=?");
-                $UpdateQuery->bind_param("ssss", $Class, $ReasonAbsence, $StaffID, $Date);
+                $UpdateQuery = $conn->prepare("UPDATE `staffattendance` SET Class=?, ReasonAbsence=? WHERE StaffName=? AND Date=?");
+                $UpdateQuery->bind_param("ssss", $Class, $ReasonAbsence, $StaffName, $Date);
                 $UpdateQuery->execute();
 
                 // Auto Refresh Webpage when delete button is clicked
@@ -126,15 +149,16 @@
                 <?php
             }
 
+
             // Delete data from DB and show in table
             if (isset($_POST['Delete'])) 
             {
-                $StaffID = $_POST['StaffID'];
+                $StaffName = $_POST['StaffName'];
                 $Date = $_POST['Date'];
 
                 // Use prepared statement to avoid SQL injection
-                $DeleteQuery = $conn->prepare("DELETE FROM `staffattendance` WHERE StaffID=? AND Date=?");
-                $DeleteQuery->bind_param("ss", $StaffID, $Date);
+                $DeleteQuery = $conn->prepare("DELETE FROM `staffattendance` WHERE StaffName=? AND Date=?");
+                $DeleteQuery->bind_param("ss", $StaffName, $Date);
                 $DeleteQuery->execute();
 
                 // Auto Refresh Webpage when delete button is clicked
@@ -211,8 +235,7 @@
                 while ($row = mysqli_fetch_assoc($result)) 
                 {
                     ?>
-                    <tr>
-                        <td align="center"><?php echo $row['StaffID']; ?></td>
+                    <tr align="center">
                         <td><?php echo $row['StaffName']; ?></td>
                         <td><?php echo $row['Class']; ?></td>
                         <td><?php echo $row['Date']; ?></td>
@@ -225,26 +248,7 @@
                             }
                             ?>
                         </td>
-                        <td><?php echo $row['SubsTeacherName']; ?></td>
-                        <td>
-                            <form method="post">
-                                <input type="hidden" name="staff_id" value="<?php echo $row['StaffID']; ?>">
-                                <select class="form-select" aria-label="Default select example" name="substitute_teacher">
-                                    <option selected align="center">Select Teacher</option>
-                                    <hr class="dropdown-divider">
-                                    <option value="RAZALI BIN YAHYA">RAZALI BIN YAHYA</option>
-                                    <option value="FAEZAH BINTI DAUZ">FAEZAH BINTI DAUZ</option>
-                                    <option value="ZAKI BIN MAHMOD">ZAKI BIN MAHMOD</option>
-                                    <option value="ASYIKIN BINTI NORZULAN">ASYIKIN BINTI NORZULAN</option>
-                                    <option value="AYUB BIN AHMAD">AYUB BIN AHMAD</option>
-                                    <option value="ABU BIN ABDULLAH">ABU BIN ABDULLAH</option>
-                                    <option value="SITI RAMLAH BINTI ABDUL RAHMAN">SITI RAMLAH BINTI ABDUL RAHMAN</option>
-                                    <option value="KAMARUDDIN BIN ALI">KAMARUDDIN BIN ALI</option>
-                                    <option value="NAWI BIN IMAN">NAWI BIN IMAN</option>
-                                    <option value="HAFIZAH BINTI ZAKARIA">HAFIZAH BINTI ZAKARIA</option>
-                                </select>
-                        </td>
-                        <td><button type="submit" class="btn btn-success" name="submit">Add</button></td>
+                        <td><?php echo $row['DateReplacementClass']; ?></td>
                         </form>
                     </tr>
                     <?php
@@ -276,7 +280,7 @@
             $offset = ($page - 1) * $recordsPerPage;
 
             // Select all pending and accepted/declined data from DB and display on table
-            $query = "SELECT * FROM `staffaccount` WHERE status = 'pending' OR status = 'accepted' OR status = 'declined' ORDER BY staff_id DESC LIMIT ? OFFSET ?";
+            $query = "SELECT * FROM `staffaccount` WHERE status = 'pending' OR status = 'accepted' OR status = 'declined' ORDER BY StaffName DESC LIMIT ? OFFSET ?";
             $stmt = mysqli_prepare($conn, $query);
             mysqli_stmt_bind_param($stmt, 'ii', $recordsPerPage, $offset);
             mysqli_stmt_execute($stmt);
@@ -290,8 +294,7 @@
                 ?>
                 <tr>
                     <td scope="row" align="center"><?php echo $rowNumber; ?></td> <!-- Display the row number -->
-                    <td align="center"><?php echo $row['staff_id']; ?></td>
-                    <td><?php echo $row['username']; ?></td>
+                    <td align="center"><?php echo $row['StaffName']; ?></td>
 
                     <td>
                         <input type="password" value="<?php echo $row['password']; ?>" id="password<?php echo $rowNumber; ?>" readonly>
@@ -331,12 +334,12 @@
                         <?php if ($row['status'] == 'pending'): ?>
                             <!-- Add Accept and Decline buttons with form -->
                             <form method="post" action="accept.php">
-                                <input type="hidden" name="staff_id" value="<?php echo $row['staff_id']; ?>">
+                                <input type="hidden" name="Email" value="<?php echo $row['email']; ?>">
                                 <button type="submit" class="btn btn-success btn-sm" name="accept">Accept</button>
                             </form>
                             <br>
                             <form method="post" action="decline.php">
-                                <input type="hidden" name="staff_id" value="<?php echo $row['staff_id']; ?>">
+                                <input type="hidden" name="Email" value="<?php echo $row['email']; ?>">
                                 <button type="submit" class="btn btn-danger btn-sm" name="decline">Decline</button>
                             </form>
                         <?php endif; ?>
@@ -347,7 +350,7 @@
                             if (empty($row['role']) && $row['status'] == 'accepted'): ?>
                                 <!-- Add a form to set the role -->
                                 <form method="post" action="">
-                                    <input type="hidden" name="staff_id" value="<?php echo $row['staff_id']; ?>">
+                                    <input type="hidden" name="Email" value="<?php echo $row['email']; ?>">
                                     <select class="form-select form-select-sm" name="role" id="role">
                                         <center>
                                             <option selected>Select role</option>
@@ -372,13 +375,13 @@
             // Process the form submission outside the loop
             if (isset($_POST['set_role'])) 
             {
-                $staff_id = mysqli_real_escape_string($conn, $_POST['staff_id']);
+                $StaffEmail = mysqli_real_escape_string($conn, $_POST['Email']);
                 $role = mysqli_real_escape_string($conn, $_POST['role']);
 
                 // Update the role in the database
-                $updateQuery = "UPDATE `staffaccount` SET `role` = ? WHERE `staff_id` = ?";
+                $updateQuery = "UPDATE `staffaccount` SET `role` = ? WHERE `email` = ?";
                 $stmt = mysqli_prepare($conn, $updateQuery);
-                mysqli_stmt_bind_param($stmt, 'ss', $role, $staff_id);
+                mysqli_stmt_bind_param($stmt, 'ss', $role, $StaffEmail);
                 if (mysqli_stmt_execute($stmt)) 
                 {
                     echo "<script>alert('Role set successfully');</script>";
@@ -401,8 +404,7 @@
             // Insert data into DB and show in table
             if (isset($_POST['Add'])) 
             {
-                $StaffID = $_POST['StaffID'];
-                $Username = $_POST['StaffUname'];
+                $StaffName = $_POST['StaffName'];
                 $Password = $_POST['StaffPassName'];
                 $Email = $_POST['StaffEmail'];
 
@@ -410,8 +412,8 @@
                 $PassEnc = password_hash($Password, PASSWORD_DEFAULT);
 
                 // Use prepared statement to avoid SQL injection
-                $InsertQuery = $conn->prepare("INSERT INTO `staffaccount` (staff_id, username, password, email) VALUES (?, ?, ?, ?)");
-                $InsertQuery->bind_param("ssss", $StaffID, $Username, $PassEnc, $Email);
+                $InsertQuery = $conn->prepare("INSERT INTO `staffaccount` (StaffName, password, email) VALUES (?, ?, ?)");
+                $InsertQuery->bind_param("sss", $StaffName, $PassEnc, $Email);
                 $InsertQuery->execute();
                 echo "<script>alert('Succesfully added an staff account.');</script>";
 
@@ -430,8 +432,7 @@
             // Update data from DB and show in table
             if (isset($_POST['Update'])) 
             {
-                $StaffID = $_POST['StaffID'];
-                $Username = $_POST['StaffUname'];
+                $StaffName = $_POST['Staff_Name'];
                 $Password = $_POST['StaffPassName'];
                 $Email = $_POST['StaffEmail'];
                 
@@ -439,8 +440,8 @@
                 $PassEnc = password_hash($Password, PASSWORD_DEFAULT);
 
                 // Use prepared statement to avoid SQL injection
-                $UpdateQuery = $conn->prepare("UPDATE `staffaccount` SET username=?, password=?, email=? WHERE staff_id=?");
-                $UpdateQuery->bind_param("ssss", $Username, $PassEnc, $Email, $StaffID);
+                $UpdateQuery = $conn->prepare("UPDATE `staffaccount` SET password=?, email=? WHERE StaffName=?");
+                $UpdateQuery->bind_param("sss", $PassEnc, $Email, $StaffName);
                 $UpdateQuery->execute();
                 echo "<script>alert('Succesfully update an staff account.');</script>";
 
@@ -459,12 +460,12 @@
             // Delete data from DB and show in table
             if (isset($_POST['Delete'])) 
             {
-                $StaffID = $_POST['StaffID'];
+                $StaffName = $_POST['StaffName'];
                 $Email = $_POST['StaffEmail'];
 
                 // Use prepared statement to avoid SQL injection
-                $DeleteQuery = $conn->prepare("DELETE FROM `staffaccount` WHERE staff_id=? AND email=?");
-                $DeleteQuery->bind_param("ss", $StaffID, $Email);
+                $DeleteQuery = $conn->prepare("DELETE FROM `staffaccount` WHERE StaffName=? AND email=?");
+                $DeleteQuery->bind_param("ss", $StaffName, $Email);
                 $DeleteQuery->execute();
                 echo "<script>alert('Succesfully deleted an staff account.');</script>";
 

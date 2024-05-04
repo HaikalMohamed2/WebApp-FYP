@@ -77,14 +77,11 @@
                   </th>
                 </tr>
                 <tr>
-                  <th scope="col">Staff ID</th>
                   <th scope="col">Name</th>
                   <th scope="col">Class</th>
                   <th scope="col">Date</th>
                   <th scope="col">Reason Absence</th>
-                  <th scope="col">Substitute Teachers Name</th>
-                  <th scope="col">Choose a Substitute <br> Teacher </th>
-                  <th scope="col">Update</th>
+                  <th scope="col">Date For Replacement Class</th>
                 </tr>
                 <tr>
 
@@ -122,7 +119,6 @@
       <span class="text-muted">@SEMUJA SAMS 2024</span>
     </div>
   </footer>
-
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
