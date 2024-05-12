@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
+/* Media queries for responsiveness */
+@media (min-width: 576px) 
+{
+  /* Small devices */
+  .modal-dialog
+  {
+    overflow-y: hidden;
+  }
+
+  .modal-body
+  {
+    overflow-y: hidden;
+  }
+}
+
+@media (min-width: 768px) 
+{
+  /* Medium devices (tablets) */
+}
+
+@media (min-width: 992px) 
+{
+  /* Large devices (desktops) */
+}
+
+@media (min-width: 1200px) 
+{
+  /* Extra large devices (large desktops) */
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar 
+{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track 
+{
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb 
+{
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover 
+{
+  background: #555;
+}
+
+/* Custom styles for table */
+.table-responsive 
+{
+  max-width: 100%;
+  overflow-y: auto;
+}
+
+.table-striped tbody tr:nth-of-type(odd) 
+{
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Nav Bar */
+.NavFont 
+{
+  font-size: large;
+  font-family: 'Montserrat';
+}
+
+.navbar-nav 
+{
+  margin-left: auto;
+  text-align: center;
+}
+
+.NavColor 
+{
+  background-color: #e5d571;
+}
+
+.BodyColor
+{
+    background-color: rgba(34, 193, 195, 1);
+}
+
+/* Footer */
+.FooterStyle
+{
+  background-color: #e5d571;
+  font-family: 'Montserrat';
+  text-align: center;
+  bottom: 0;
+  width: auto;
+}
+
+.ContentColor 
+{
+  padding-bottom: 70px; /* Adjust this value based on the height of your footer */
+}
+
+.BodyColor 
+{
+  background-color: rgba(34, 193, 195, 1);
+}
+
+/* Table Position */
+.TablePosition 
+{
+  margin-left: auto;
+}
